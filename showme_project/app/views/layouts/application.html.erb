@@ -21,7 +21,12 @@
               <strong><%= current_user.email %></strong> <br><br>
               <%= link_to "Edit Profile", edit_user_registration_path%>
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-              
+            <% if current_user.admin %>
+              <p><strong>ADMIN</strong></p>
+            <% else %>
+              <p><strong>MEMBER</strong></p>
+            <% end %>
+
             <% else %>
               <p> NOT LOGGED IN </p>
               <%= link_to "Sign up", new_user_registration_path %>
@@ -29,7 +34,7 @@
             <% end %>
           </p>
 
-         <strong>ADMIN</strong>
+        
         
         </p>
   		</div>
