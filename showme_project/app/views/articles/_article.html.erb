@@ -1,0 +1,13 @@
+<div class="article">
+  <p>Title: <strong><%= article.title %></strong></p>
+   <p>Desrcription: <strong><%= article.description %></strong></p>
+	   <p>Git Link: <strong><%= article.git_link %></strong></p>	
+
+
+
+
+
+  <br>
+  <%= link_to "Show Page", article if action_name == "index" %> 
+  <%= link_to "Edit Page", edit_article_path(article) %>
+</div>
