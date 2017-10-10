@@ -16,6 +16,7 @@
 
 body {
 	margin: 0 auto;
+	background-color: aliceblue;
 }
 
 .side-bar {
@@ -75,10 +76,12 @@ a.side-link {
 }
 
 .sad-box {
-	background: fuchsia;
+	background: darkblue ;
+	padding: 25px;
 	position: absolute;
 	top: 40%;
 	left: 240px;
 	font-family: impact;
 	font-size: 50px;
+	border-radius: 25px;
 }
