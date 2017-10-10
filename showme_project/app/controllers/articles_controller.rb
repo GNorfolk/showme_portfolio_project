@@ -2,6 +2,13 @@ class ArticlesController < ApplicationController
   def index
     @user = current_user.id
     @articles = current_user.articles
+
+
+    if params[:search]
+      @articles = Article.search(params[:search])
+    else
+      @articles = Article.all
+    end
   end
 
   def show
