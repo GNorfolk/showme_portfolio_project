@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
 	belongs_to :user
 
-	validates :title, :description, :bg_image, :proj_image, :git_link, :difficulty, :user_id, presence: true
+	validates :title, :description, :git_link, :difficulty, :user_id, presence: true
 
 	validates :title , length: { minimum: 2, maximum: 256, message: "must be between 2 and 256 characters long!" }
 
