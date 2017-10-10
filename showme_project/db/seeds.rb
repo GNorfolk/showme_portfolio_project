@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-u1 = User.create! :email => 'q@q.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u1 = User.create! :email => 'q@q.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
 u2 = User.create! :email => 'w@w.com', :password => 'wwwwww', :password_confirmation => 'wwwwww'
 
 Article.create!(title: "This is my first project!", description: "So this is the week 3 project where we made a game using HTML, CSS and JavaScript.", bg_image: "url", proj_image: "p_url", git_link: "https://github.com/github/gitignore", difficulty: 3, user_id: u1.id)
