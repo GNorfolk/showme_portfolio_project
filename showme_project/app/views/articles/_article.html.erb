@@ -7,8 +7,7 @@
   <%= link_to "Home Page", "/" unless action_name == "index" %> 
   <%= link_to "Show Page", article if action_name == "index" %> 
   <% if can? :update, article %>
-    <%= link_to "Edit Page", edit_article_path(article) %>
-
-    <%= link_to "Destroy", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to "Edit Page", edit_article_path(article) unless action_name == "index" %>
+    <%= link_to "Delete", article_path(article), method: :delete unless action_name == "index" %>
   <% end %>
 </div>
