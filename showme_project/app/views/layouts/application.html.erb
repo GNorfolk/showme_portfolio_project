@@ -9,26 +9,39 @@
   </head>
 
   <body>
-<<<<<<< HEAD
-
   	<div class="side-bar">
 
   		<div class="user-bar">
   			<img src="user-image" class="user-image">
   			<h5> USER NAME </h5>
-  			<p> Logged in as <br>
-  				<%= User.find(@user).email %> <br>
-  				ADMIN </p>
+  			
+    			<p>
+            <% if user_signed_in? %>
+              <p> Logged in as <br>
+              <strong><%= current_user.email %></strong> <br>
+              <%= link_to "Edit Profile", edit_user_registration_path%>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              
+            <% else %>
+              <p> NOT LOGGED IN </p>
+              <%= link_to "Sign up", new_user_registration_path %>
+              <%= link_to "Login", new_user_session_path %>
+            <% end %>
+          </p>
+
+        ADMIN
+        
+        </p>
   		</div>
 
   		<div class="nav-bar">
   		
 	  		
-		  		<p>Full Portfolio</p>
-		  		<p>Personal Projects</p>
-		  		<p>New Project</p>
-		  		<p>View Profile</p>
-		  		<p>Log Out</p>
+		  		<a href="#"><p>Full Portfolio</p></a>
+		  		<a href="#"><p>Personal Projects</p></a>
+		  		<a href="#"><p>New Project</p></a>
+		  		<a href="#"><p>View Profile</p></a>
+		  		<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 	  		
 
 	  		<div class="search-bar">
@@ -37,17 +50,6 @@
   		</div>
  
   	</div>
-=======
-  	<p class="navbar-text pull-right">
-  		<% if user_signed_in? %>
-  			Logged in as <strong> <%= current_user.email %> </strong>
-  			<%= link_to "Edit Profile", edit_user_registration_path, :class => 'navbar-link' %>
-  			<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-  		<% else %>
-  			<%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %>
-  			<%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
-  		<% end %>
-  	</p>
 
   	<% if notice %>
   		<p class="alert alert-success"><%= notice %></p>
@@ -55,8 +57,7 @@
   	<% if alert %>
   		<p class="alert alert-danger"><%= alert %></p>
   	<% end %>
->>>>>>> 71f0bb461da5c45b2e1c1e7daf6ac1d87e8f729b
-
+    
     <%= yield %>
   </body>
 </html>

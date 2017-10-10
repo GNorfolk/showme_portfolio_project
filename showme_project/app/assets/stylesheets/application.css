@@ -14,12 +14,15 @@
  *= require_self
  */
 
+
 .side-bar {
-	height: 50vh;
+	height: 80vh;
 	width: 200px;
-	background-color: green;
+	background-color: darkblue;
 	text-align: center;
 	display:inline-block;
+	color: lightgray;
+	font-size: 20px;
 }
 
 .user-bar {
@@ -30,4 +33,24 @@
 .nav-bar {
 	height: 20vh;
 	width: 200px;
+	background-color: blue;
+	font-size: 20px;
+
 }
+
+a:visited {
+	color: white;
+}
+
+a {
+	color: white;
+}
+
+.article {
+	display: inline-block;
+	height: 300px;
+	width: 300px;
+	background-color: lightblue;
+	margin: 10px;
+	float: top;
+	}
