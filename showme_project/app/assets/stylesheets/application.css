@@ -16,26 +16,34 @@
 
 
 .side-bar {
-	height: 80vh;
-	width: 200px;
+	height: 100vh;
+	width: 220px;
 	background-color: darkblue;
 	text-align: center;
 	display:inline-block;
 	color: lightgray;
-	font-size: 20px;
+	font-size: 22px;
 }
 
 .user-bar {
-	height: 20vh;
+	height: 30vh;
 	width: 200px;
 }
 
 .nav-bar {
 	height: 20vh;
-	width: 200px;
+	width: 220px;
 	background-color: blue;
-	font-size: 20px;
+	font-size: 22px;
+	padding: 20px 0;
 
+}
+
+.search-bar {
+	height: 3vh;
+	width: 220px;
+	background-color: seagreen;
+	margin: 50px 0;
 }
 
 a:visited {
@@ -52,5 +60,13 @@ a {
 	width: 300px;
 	background-color: lightblue;
 	margin: 10px;
-	float: top;
+	vertical-align: top;
+
 	}
+
+.sparta-logo {
+	height: 100px;
+	width: 210px;
+	position: relative;
+	bottom: -22vh;
+}

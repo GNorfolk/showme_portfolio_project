@@ -41,16 +41,18 @@
 		  		<a href="#"><p>Personal Projects</p></a>
 		  		<a href="#"><p>New Project</p></a>
 		  		<a href="#"><p>View Profile</p></a>
-		  		<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 	  		
 
 	  		<div class="search-bar">
+        SEARCH BAR
 	  		</div> 
+
+        <img src="https://www.spartaglobal.com/img/sparta-global-logo-white.svg" class="sparta-logo">
 
   		</div>
  
   	</div>
-
+<span style="display:inline-block; vertical-align: top;">
   	<% if notice %>
   		<p class="alert alert-success"><%= notice %></p>
   	<% end %>
@@ -59,5 +61,6 @@
   	<% end %>
     
     <%= yield %>
+    </span>
   </body>
 </html>
