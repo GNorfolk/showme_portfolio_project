@@ -10,8 +10,6 @@
 u1 = User.create! :email => 'q@q.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
 u2 = User.create! :email => 'w@w.com', :password => 'wwwwww', :password_confirmation => 'wwwwww'
 
-
-
-Article.create!(title: "Article 1", description: "Desc 1", bg_image: "url", proj_image: "p_url", git_link: "gitlink", difficulty: 4, user_id: u1.id)
-Article.create!(title: "Article 2", description: "Desc 2", bg_image: "url", proj_image: "p_url", git_link: "gitlink", difficulty: 4, user_id: u1.id)
-Article.create!(title: "Article 3", description: "Desc 3", bg_image: "url", proj_image: "p_url", git_link: "gitlink", difficulty: 4, user_id: u2.id)
+Article.create!(title: "This is my first project!", description: "So this is the week 3 project where we made a game using HTML, CSS and JavaScript.", bg_image: "url", proj_image: "p_url", git_link: "https://github.com/github/gitignore", difficulty: 3, user_id: u1.id)
+Article.create!(title: "This is my second project!", description: "This is the week 6 project where we made a basic project portfolio application using ruby on rails and web dev languages.", bg_image: "url", proj_image: "p_url", git_link: "https://github.com/github/gitignore", difficulty: 4, user_id: u1.id)
+Article.create!(title: "This is the week 3 project.", description: "This was the project game where we used web dev languages to build a game that a user or users could play.", bg_image: "url", proj_image: "p_url", git_link: "https://github.com/github/gitignore", difficulty: 3, user_id: u2.id)
