@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-
+    @user = current_user.id
   end
 
   def show
