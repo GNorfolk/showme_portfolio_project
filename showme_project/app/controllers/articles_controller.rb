@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   def index
+    @user = current_user.id
     @articles = current_user.articles
   end
 
