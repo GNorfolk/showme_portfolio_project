@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
 
     if user.admin?
-        can :update, Article
+        can :manage, :all
     else
         
     end

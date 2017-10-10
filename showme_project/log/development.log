@@ -1,861 +1,211 @@
-  [1m[35m (27.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8464876456762867890)[0m
-  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateArticles (20171010100657)
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171010100657"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 10:07:52.204695"], ["updated_at", "2017-10-10 10:07:52.204695"]]
-  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8464876456762867890)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 1"], ["description", "Desc 1"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 10:11:55.025224"], ["updated_at", "2017-10-10 10:11:55.025224"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 2"], ["description", "Desc 2"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 10:11:55.029562"], ["updated_at", "2017-10-10 10:11:55.029562"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 3"], ["description", "Desc 3"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 10:11:55.032894"], ["updated_at", "2017-10-10 10:11:55.032894"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8464876456762867890)[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to DeviseCreateUsers (20171010101444)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171010101444"]]
-  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8464876456762867890)[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "q@q.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "q@q.com"], ["encrypted_password", "$2a$11$JY.2SHTxQA1x059xw28A3e3PZkEuwy/o1pkDee6bmr4Uq6GmZd9Ia"], ["created_at", "2017-10-10 10:19:58.078532"], ["updated_at", "2017-10-10 10:19:58.078532"]]
-  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "w@w.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "w@w.com"], ["encrypted_password", "$2a$11$EwN/YBqvFfNQe9Dge3qoTe4zTI0rI47WA0NvC9aJNM7W3VwCCHec."], ["created_at", "2017-10-10 10:19:58.247915"], ["updated_at", "2017-10-10 10:19:58.247915"]]
-  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 1"], ["description", "Desc 1"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 10:19:58.264837"], ["updated_at", "2017-10-10 10:19:58.264837"]]
-  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 2"], ["description", "Desc 2"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 10:19:58.268405"], ["updated_at", "2017-10-10 10:19:58.268405"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 3"], ["description", "Desc 3"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 2], ["created_at", "2017-10-10 10:19:58.271815"], ["updated_at", "2017-10-10 10:19:58.271815"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (135.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "showme_project_development"[0m
-  [1m[35m (136.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "showme_project_test"[0m
-  [1m[35m (253.6ms)[0m  [1m[35mCREATE DATABASE "showme_project_development" ENCODING = 'unicode'[0m
-  [1m[35m (262.3ms)[0m  [1m[35mCREATE DATABASE "showme_project_test" ENCODING = 'unicode'[0m
-  [1m[35mSQL (1.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles" CASCADE[0m
-  [1m[35m (10.9ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171010101444)[0m
-  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
-(20171010100657);
-
-[0m
-  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 10:21:16.799076"], ["updated_at", "2017-10-10 10:21:16.799076"]]
-  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles" CASCADE[0m
-  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (2.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-10 14:20:02 +0100
   [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171010101444)[0m
-  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
-(20171010100657);
-
-[0m
-  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 10:21:16.890650"], ["updated_at", "2017-10-10 10:21:16.890650"]]
-  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "q@q.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "q@q.com"], ["encrypted_password", "$2a$11$PEaa9nbb.FedjFe4Wi7xs.KzTqK2vN4nhEkdIEAVg1YsoeuKEcija"], ["created_at", "2017-10-10 10:21:17.131274"], ["updated_at", "2017-10-10 10:21:17.131274"]]
-  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "w@w.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "w@w.com"], ["encrypted_password", "$2a$11$58lzT82knecfCiDM0.ncrOgQdHmcF3gv4ewPSZdiPDCFrKu.6vK22"], ["created_at", "2017-10-10 10:21:17.293276"], ["updated_at", "2017-10-10 10:21:17.293276"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 1"], ["description", "Desc 1"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 10:21:17.345687"], ["updated_at", "2017-10-10 10:21:17.345687"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 2"], ["description", "Desc 2"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 10:21:17.351842"], ["updated_at", "2017-10-10 10:21:17.351842"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 3"], ["description", "Desc 3"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 2], ["created_at", "2017-10-10 10:21:17.357517"], ["updated_at", "2017-10-10 10:21:17.357517"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
-  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
-  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
-Started GET "/" for 127.0.0.1 at 2017-10-10 11:30:21 +0100
-  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by ArticlesController#index as HTML
-  Rendering articles/index.html.erb within layouts/application
-  Rendered articles/index.html.erb within layouts/application (3.3ms)
-Completed 200 OK in 1460ms (Views: 1450.5ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-10 11:30:38 +0100
 Processing by Devise::SessionsController#new as HTML
-  Rendering devise/sessions/new.html.erb within layouts/application
-  Rendered devise/shared/_links.html.erb (1.2ms)
-  Rendered devise/sessions/new.html.erb within layouts/application (48.7ms)
-Completed 200 OK in 113ms (Views: 71.9ms | ActiveRecord: 7.3ms)
-
-
-  [1m[35m (37.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (4.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8464876456762867890)[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateArticles (20171010100657)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (15.5ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171010100657"]]
-  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
-Migrating to DeviseCreateUsers (20171010101444)
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (20.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (3.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171010101444"]]
-  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (3.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 10:55:49.844895"], ["updated_at", "2017-10-10 10:55:49.844895"]]
-  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8464876456762867890)[0m
-  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "q@q.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "q@q.com"], ["encrypted_password", "$2a$11$XTH5a0fmhjVC162QtUD6mOzdaTsYrC3BbtXE0Hc3J7ymd77qdLcs6"], ["created_at", "2017-10-10 10:55:58.915074"], ["updated_at", "2017-10-10 10:55:58.915074"]]
-  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "w@w.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "w@w.com"], ["encrypted_password", "$2a$11$EWsnYuAw4t0.LrLHKrKkle6x.ofzcND0BgTh/FeT0g8fdkTIlxW7y"], ["created_at", "2017-10-10 10:55:59.070614"], ["updated_at", "2017-10-10 10:55:59.070614"]]
-  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 1"], ["description", "Desc 1"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 10:55:59.141394"], ["updated_at", "2017-10-10 10:55:59.141394"]]
-  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 2"], ["description", "Desc 2"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 10:55:59.148996"], ["updated_at", "2017-10-10 10:55:59.148996"]]
-  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 3"], ["description", "Desc 3"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 2], ["created_at", "2017-10-10 10:55:59.155096"], ["updated_at", "2017-10-10 10:55:59.155096"]]
-  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/" for 127.0.0.1 at 2017-10-10 11:56:15 +0100
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by ArticlesController#index as HTML
-  Rendering articles/index.html.erb within layouts/application
-  Rendered articles/index.html.erb within layouts/application (3.1ms)
-Completed 200 OK in 312ms (Views: 296.8ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:03:33 +0100
-Processing by ArticlesController#index as HTML
-Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
-
-
-  
-NoMethodError (undefined method `articles' for nil:NilClass):
-  
-app/controllers/articles_controller.rb:3:in `index'
-Started GET "/articles/sign-in/" for 127.0.0.1 at 2017-10-10 12:06:18 +0100
-  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by ArticlesController#show as HTML
-  Parameters: {"id"=>"sign-in"}
-  Rendering articles/show.html.erb within layouts/application
-  Rendered articles/show.html.erb within layouts/application (0.9ms)
-Completed 200 OK in 255ms (Views: 246.0ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/sign-in/" for 127.0.0.1 at 2017-10-10 12:06:31 +0100
-  
-ActionController::RoutingError (No route matches [GET] "/sign-in"):
-  
-actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
-web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
-web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
-web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
-sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
-rack (2.0.3) lib/rack/method_override.rb:22:in `call'
-rack (2.0.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
-rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
-railties (5.1.4) lib/rails/engine.rb:522:in `call'
-puma (3.10.0) lib/puma/configuration.rb:225:in `call'
-puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
-puma (3.10.0) lib/puma/server.rb:437:in `process_client'
-puma (3.10.0) lib/puma/server.rb:301:in `block in run'
-puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-10 12:06:55 +0100
-Processing by Devise::SessionsController#new as HTML
-  Rendering devise/sessions/new.html.erb within layouts/application
-  Rendered devise/shared/_links.html.erb (2.1ms)
-  Rendered devise/sessions/new.html.erb within layouts/application (62.0ms)
-Completed 200 OK in 112ms (Views: 83.3ms | ActiveRecord: 6.6ms)
-
-
-Started POST "/users/sign_in" for 127.0.0.1 at 2017-10-10 12:07:11 +0100
-Processing by Devise::SessionsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gs2uVXjqpsGQ7vvkXQDYyxdknN2GI5ozC3T2N73zOljcpSWF35K2YMRdkvNtPU92o7e9Xrp1XQrxIFSSNJBktQ==", "user"=>{"email"=>"q@q.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
-  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "q@q.com"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2017-10-10 11:07:11.665757"], ["last_sign_in_at", "2017-10-10 11:07:11.665757"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2017-10-10 11:07:11.666945"], ["id", 1]]
-  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
-Redirected to http://localhost:3000/
-Completed 302 Found in 198ms (ActiveRecord: 4.6ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:07:11 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered articles/index.html.erb within layouts/application (26.9ms)
-Completed 500 Internal Server Error in 67ms (ActiveRecord: 7.4ms)
-
-
-  
-ActionView::Template::Error (Missing partial articles/_article with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
-  * "/Users/Tech-A23/classwork/projects/project-two/showme_portfolio_project/showme_project/app/views"
-  * "/usr/local/lib/ruby/gems/2.4.0/gems/devise-4.3.0/app/views"
-):
-    2: <p>Find me in app/views/articles/index.html.erb</p>
-    3: 
-    4: 
-    5: <%= render @articles %>
-  
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__9162152515783524_70200925124520'
-Started GET "/users/sign_up" for 127.0.0.1 at 2017-10-10 12:08:18 +0100
-Processing by Devise::RegistrationsController#new as HTML
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
 Redirected to http://localhost:3000/
 Filter chain halted as :require_no_authentication rendered or redirected
-Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+Completed 302 Found in 46ms (ActiveRecord: 8.3ms)
 
 
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:08:18 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered articles/index.html.erb within layouts/application (9.5ms)
-Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.0ms)
-
-
-  
-ActionView::Template::Error (Missing partial articles/_article with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
-  * "/Users/Tech-A23/classwork/projects/project-two/showme_portfolio_project/showme_project/app/views"
-  * "/usr/local/lib/ruby/gems/2.4.0/gems/devise-4.3.0/app/views"
-):
-    2: <p>Find me in app/views/articles/index.html.erb</p>
-    3: 
-    4: 
-    5: <%= render @articles %>
-  
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__9162152515783524_70200959261620'
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:10:07 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (0.3ms)
-  Rendered articles/index.html.erb within layouts/application (4.3ms)
-Completed 200 OK in 27ms (Views: 21.1ms | ActiveRecord: 1.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:10:40 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (0.3ms)
-  Rendered articles/index.html.erb within layouts/application (3.7ms)
-Completed 200 OK in 26ms (Views: 21.5ms | ActiveRecord: 0.9ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:11:36 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (0.4ms)
-  Rendered articles/index.html.erb within layouts/application (4.1ms)
-Completed 200 OK in 39ms (Views: 30.4ms | ActiveRecord: 1.3ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:11:54 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (0.3ms)
-  Rendered articles/index.html.erb within layouts/application (5.1ms)
-Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 1.1ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:11:55 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (0.3ms)
-  Rendered articles/index.html.erb within layouts/application (4.0ms)
-Completed 200 OK in 25ms (Views: 19.1ms | ActiveRecord: 1.1ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:17:53 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (258.8ms)
-  Rendered articles/index.html.erb within layouts/application (262.5ms)
-Completed 500 Internal Server Error in 273ms (ActiveRecord: 1.0ms)
-
-
-  
-ActionView::Template::Error (undefined local variable or method `bg' for #<#<Class:0x007fb1dc1a2878>:0x007fb1de7cb428>):
-    1: <div class="book">
-    2:   <p>Title: <strong><%= article.title %></strong></p>
-    3:    <p>Desrcription: <strong><%= article.description %></strong></p>
-    4: 	  <%= image_tag bg.image_url %>
-    5: 	  <%= image_tag proj.image_url %>	
-    6: 	   <p>Git Link: <strong><%= article.git_link %></strong></p>	
-    7: 
-  
-app/views/articles/_article.html.erb:4:in `_app_views_articles__article_html_erb___4035618467240951299_70200918674880'
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__9162152515783524_70200959336480'
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:18:49 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (281.6ms)
-  Rendered articles/index.html.erb within layouts/application (284.8ms)
-Completed 500 Internal Server Error in 296ms (ActiveRecord: 0.9ms)
-
-
-  
-ActionView::Template::Error (undefined local variable or method `bg_image' for #<#<Class:0x007fb1dc1a2878>:0x007fb1e0940900>):
-    1: <div class="book">
-    2:   <p>Title: <strong><%= article.title %></strong></p>
-    3:    <p>Desrcription: <strong><%= article.description %></strong></p>
-    4: 	  <%= image_tag bg_image %>
-    5: 	  <%= image_tag proj_image %>	
-    6: 	   <p>Git Link: <strong><%= article.git_link %></strong></p>	
-    7: 
-  
-app/views/articles/_article.html.erb:4:in `_app_views_articles__article_html_erb___4035618467240951299_70200976972500'
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__9162152515783524_70200976869820'
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:18:50 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (256.9ms)
-  Rendered articles/index.html.erb within layouts/application (260.3ms)
-Completed 500 Internal Server Error in 271ms (ActiveRecord: 1.0ms)
-
-
-  
-ActionView::Template::Error (undefined local variable or method `bg_image' for #<#<Class:0x007fb1dc1a2878>:0x007fb1e0953640>):
-    1: <div class="book">
-    2:   <p>Title: <strong><%= article.title %></strong></p>
-    3:    <p>Desrcription: <strong><%= article.description %></strong></p>
-    4: 	  <%= image_tag bg_image %>
-    5: 	  <%= image_tag proj_image %>	
-    6: 	   <p>Git Link: <strong><%= article.git_link %></strong></p>	
-    7: 
-  
-app/views/articles/_article.html.erb:4:in `_app_views_articles__article_html_erb___4035618467240951299_70200976851860'
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__9162152515783524_70200976916740'
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:19:17 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (4.7ms)
-  Rendered articles/index.html.erb within layouts/application (8.6ms)
-Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.1ms)
-
-
-  
-ActionView::Template::Error (The asset "url" is not present in the asset pipeline.):
-    1: <div class="book">
-    2:   <p>Title: <strong><%= article.title %></strong></p>
-    3:    <p>Desrcription: <strong><%= article.description %></strong></p>
-    4: 	  <%= image_tag article.bg_image %>
-    5: 	  <%= image_tag article.proj_image %>	
-    6: 	   <p>Git Link: <strong><%= article.git_link %></strong></p>	
-    7: 
-  
-app/views/articles/_article.html.erb:4:in `_app_views_articles__article_html_erb___4035618467240951299_70200958925240'
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__9162152515783524_70200972072420'
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:20:40 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (4.5ms)
-  Rendered articles/index.html.erb within layouts/application (8.4ms)
-Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.1ms)
-
-
-  
-ActionView::Template::Error (The asset "url" is not present in the asset pipeline.):
-    1: <div class="book">
-    2:   <p>Title: <strong><%= article.title %></strong></p>
-    3:    <p>Desrcription: <strong><%= article.description %></strong></p>
-    4: 	  <%= image_tag article.bg_image %>
-    5: 	  <%= image_tag article.proj_image %>	
-    6: 	   <p>Git Link: <strong><%= article.git_link %></strong></p>	
-    7: 
-  
-app/views/articles/_article.html.erb:4:in `_app_views_articles__article_html_erb___4035618467240951299_70200977409080'
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__9162152515783524_70200977462220'
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:20:42 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (3.2ms)
-  Rendered articles/index.html.erb within layouts/application (6.7ms)
-Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.1ms)
-
-
-  
-ActionView::Template::Error (The asset "url" is not present in the asset pipeline.):
-    1: <div class="book">
-    2:   <p>Title: <strong><%= article.title %></strong></p>
-    3:    <p>Desrcription: <strong><%= article.description %></strong></p>
-    4: 	  <%= image_tag article.bg_image %>
-    5: 	  <%= image_tag article.proj_image %>	
-    6: 	   <p>Git Link: <strong><%= article.git_link %></strong></p>	
-    7: 
-  
-app/views/articles/_article.html.erb:4:in `_app_views_articles__article_html_erb___4035618467240951299_70200956767180'
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__9162152515783524_70200956911980'
-Started GET "/" for 127.0.0.1 at 2017-10-10 12:22:04 +0100
+Started GET "/" for 127.0.0.1 at 2017-10-10 14:20:02 +0100
 Processing by ArticlesController#index as HTML
   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (1.4ms)
-  Rendered articles/index.html.erb within layouts/application (4.9ms)
-Completed 200 OK in 27ms (Views: 21.6ms | ActiveRecord: 0.9ms)
-
-
-Started GET "/articles/1" for 127.0.0.1 at 2017-10-10 12:22:58 +0100
-Processing by ArticlesController#show as HTML
-  Parameters: {"id"=>"1"}
-  Rendering articles/show.html.erb within layouts/application
-  Rendered articles/show.html.erb within layouts/application (0.5ms)
-Completed 200 OK in 28ms (Views: 23.4ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/articles/1/edit" for 127.0.0.1 at 2017-10-10 12:23:01 +0100
-Processing by ArticlesController#edit as HTML
-  Parameters: {"id"=>"1"}
-  Rendering articles/edit.html.erb within layouts/application
-  Rendered articles/edit.html.erb within layouts/application (0.4ms)
-Completed 200 OK in 30ms (Views: 23.5ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-10 13:35:34 +0100
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by Devise::SessionsController#new as HTML
-  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-Redirected to http://localhost:3000/
-Filter chain halted as :require_no_authentication rendered or redirected
-Completed 302 Found in 49ms (ActiveRecord: 9.4ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-10-10 13:35:34 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   Rendering articles/index.html.erb within layouts/application
   [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
   Rendered collection of articles/_article.html.erb [2 times] (1.3ms)
-  Rendered articles/index.html.erb within layouts/application (49.4ms)
-Completed 200 OK in 309ms (Views: 285.9ms | ActiveRecord: 5.9ms)
+  Rendered articles/index.html.erb within layouts/application (36.9ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 6.3ms)
 
 
-  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  
+SyntaxError (/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+fer.append=( if can? :update );@output_buffer.safe_append='
+                              ^
+/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
+ze;@output_buffer.append=( end );@output_buffer.safe_append=
+                              ^
+/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
+app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__4320476237621945428_70288591752140'
+Started GET "/" for 127.0.0.1 at 2017-10-10 14:21:07 +0100
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered collection of articles/_article.html.erb [2 times] (1.2ms)
+  Rendered articles/index.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.1ms)
+
+
+  
+SyntaxError (/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+d=( if can? :update, Article );@output_buffer.safe_append='
+                              ^
+/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
+ze;@output_buffer.append=( end );@output_buffer.safe_append=
+                              ^
+/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
+app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__4320476237621945428_70288565185780'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-10 14:23:29 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 22ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-10 14:23:29 +0100
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered collection of articles/_article.html.erb [2 times] (2.7ms)
+  Rendered articles/index.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 1237ms (Views: 1224.5ms | ActiveRecord: 5.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-10-10 14:23:34 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cytdw04HKWQD53JiO9WSN2Vb1O4Uc8PguMqm+UyNNcjdBMtKGf8bkXoqxXzB2hU7RGh4n9dlvY8FV1QSoPvcSQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-10 14:23:34 +0100
+Processing by ArticlesController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `articles' for nil:NilClass):
+  
+app/controllers/articles_controller.rb:3:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (132.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "showme_project_development"[0m
-  [1m[35m (132.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "showme_project_test"[0m
-  [1m[35m (271.2ms)[0m  [1m[35mCREATE DATABASE "showme_project_development" ENCODING = 'unicode'[0m
-  [1m[35m (276.0ms)[0m  [1m[35mCREATE DATABASE "showme_project_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (131.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "showme_project_development"[0m
+  [1m[35m (132.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "showme_project_test"[0m
+  [1m[35m (266.6ms)[0m  [1m[35mCREATE DATABASE "showme_project_development" ENCODING = 'unicode'[0m
+  [1m[35m (256.2ms)[0m  [1m[35mCREATE DATABASE "showme_project_test" ENCODING = 'unicode'[0m
   [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
   [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles" CASCADE[0m
-  [1m[35m (18.6ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (7.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (4.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171010101444)[0m
-  [1m[35m (3.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
-(20171010100657);
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "admin" boolean)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171010124509)[0m
+  [1m[35m (3.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171010100657),
+(20171010101444);
 
 [0m
-  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (3.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 12:39:05.231136"], ["updated_at", "2017-10-10 12:39:05.231136"]]
-  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles" CASCADE[0m
-  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (7.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (8.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171010101444)[0m
-  [1m[35m (3.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
-(20171010100657);
-
-[0m
-  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 12:39:05.367705"], ["updated_at", "2017-10-10 12:39:05.367705"]]
-  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 13:23:59.148636"], ["updated_at", "2017-10-10 13:23:59.148636"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles" CASCADE[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "admin" boolean)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171010124509)[0m
+  [1m[35m (3.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171010100657),
+(20171010101444);
+
+[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 13:23:59.281716"], ["updated_at", "2017-10-10 13:23:59.281716"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "q@q.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "q@q.com"], ["encrypted_password", "$2a$11$rD6vY4rFcS5ugqv1/UyZe.h0BGXe6tnUyPRwLqP61EnfIs9lAEUke"], ["created_at", "2017-10-10 12:39:05.581961"], ["updated_at", "2017-10-10 12:39:05.581961"]]
-  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "w@w.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "w@w.com"], ["encrypted_password", "$2a$11$m7.14z0SwNVCjilQ/usSlu9HxKV8woIKPDNyd.Qs6ZC9pfMdLXx4m"], ["created_at", "2017-10-10 12:39:05.733447"], ["updated_at", "2017-10-10 12:39:05.733447"]]
-  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "q@q.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "admin") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "q@q.com"], ["encrypted_password", "$2a$11$M4BEujgH4Hs04E0eE4MEfOmqUJo0CNSENFCRNWj1EW4bGGlo1teFK"], ["created_at", "2017-10-10 13:23:59.488627"], ["updated_at", "2017-10-10 13:23:59.488627"], ["admin", "t"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "w@w.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "w@w.com"], ["encrypted_password", "$2a$11$O01fcCWD9i6j2uP1N3J3e.ZrlNuTV3XCKralRwr0XrHgJh4OBGney"], ["created_at", "2017-10-10 13:23:59.644223"], ["updated_at", "2017-10-10 13:23:59.644223"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 1"], ["description", "Desc 1"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 12:39:05.765721"], ["updated_at", "2017-10-10 12:39:05.765721"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 1"], ["description", "Desc 1"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 13:23:59.687590"], ["updated_at", "2017-10-10 13:23:59.687590"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 2"], ["description", "Desc 2"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 13:23:59.695078"], ["updated_at", "2017-10-10 13:23:59.695078"]]
   [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 2"], ["description", "Desc 2"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 12:39:05.772268"], ["updated_at", "2017-10-10 12:39:05.772268"]]
-  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 3"], ["description", "Desc 3"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 2], ["created_at", "2017-10-10 12:39:05.778299"], ["updated_at", "2017-10-10 12:39:05.778299"]]
-  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/" for 127.0.0.1 at 2017-10-10 13:39:19 +0100
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 47ms (ActiveRecord: 7.2ms)
-
-
-  
-NoMethodError (undefined method `articles' for nil:NilClass):
-  
-app/controllers/articles_controller.rb:3:in `index'
-Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-10 13:39:19 +0100
-Processing by Devise::SessionsController#new as HTML
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering devise/sessions/new.html.erb within layouts/application
-  Rendered devise/shared/_links.html.erb (1.9ms)
-  Rendered devise/sessions/new.html.erb within layouts/application (34.7ms)
-Completed 200 OK in 244ms (Views: 238.4ms | ActiveRecord: 0.5ms)
-
-
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8464876456762867890)[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to AddAdminToUser (20171010124509)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171010124509"]]
-  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8464876456762867890)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "q@q.com"], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (132.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "showme_project_development"[0m
-  [1m[35m (133.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "showme_project_test"[0m
-  [1m[35m (254.7ms)[0m  [1m[35mCREATE DATABASE "showme_project_development" ENCODING = 'unicode'[0m
-  [1m[35m (258.3ms)[0m  [1m[35mCREATE DATABASE "showme_project_test" ENCODING = 'unicode'[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles" CASCADE[0m
-  [1m[35m (20.3ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "admin" boolean)[0m
-  [1m[35m (7.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (3.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171010124509)[0m
-  [1m[35m (3.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
-(20171010100657),
-(20171010101444);
-
-[0m
-  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 13:04:33.172194"], ["updated_at", "2017-10-10 13:04:33.172194"]]
-  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles" CASCADE[0m
-  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "description" text, "bg_image" character varying, "proj_image" character varying, "git_link" character varying, "difficulty" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
-  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "admin" boolean)[0m
-  [1m[35m (8.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
-  [1m[35m (7.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
-  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171010124509)[0m
-  [1m[35m (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
-(20171010100657),
-(20171010101444);
-
-[0m
-  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-10 13:04:33.307564"], ["updated_at", "2017-10-10 13:04:33.307564"]]
-  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "q@q.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "admin") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "q@q.com"], ["encrypted_password", "$2a$11$wKH3a4W.euMcuhsEwuJSj.WZd6U3lBNKnTtSRXhtkcLedaKLg/Kzy"], ["created_at", "2017-10-10 13:04:33.521317"], ["updated_at", "2017-10-10 13:04:33.521317"], ["admin", "t"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 3"], ["description", "Desc 3"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 2], ["created_at", "2017-10-10 13:23:59.701867"], ["updated_at", "2017-10-10 13:23:59.701867"]]
   [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "w@w.com"], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "w@w.com"], ["encrypted_password", "$2a$11$.NOCR7lXPKI4SjeIkW7nZuODotYdPv68KZW0A4s1dFeH2SMMqh2xG"], ["created_at", "2017-10-10 13:04:33.673800"], ["updated_at", "2017-10-10 13:04:33.673800"]]
-  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 1"], ["description", "Desc 1"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 13:04:33.714372"], ["updated_at", "2017-10-10 13:04:33.714372"]]
-  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 2"], ["description", "Desc 2"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 1], ["created_at", "2017-10-10 13:04:33.721526"], ["updated_at", "2017-10-10 13:04:33.721526"]]
-  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "description", "bg_image", "proj_image", "git_link", "difficulty", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Article 3"], ["description", "Desc 3"], ["bg_image", "url"], ["proj_image", "p_url"], ["git_link", "gitlink"], ["difficulty", 4], ["user_id", 2], ["created_at", "2017-10-10 13:04:33.727611"], ["updated_at", "2017-10-10 13:04:33.727611"]]
-  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
-Started GET "/" for 127.0.0.1 at 2017-10-10 14:13:31 +0100
-  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Processing by ArticlesController#index as HTML
-Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
-
-
-  
-NoMethodError (undefined method `articles' for nil:NilClass):
-  
-app/controllers/articles_controller.rb:3:in `index'
-Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-10 14:13:36 +0100
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-10 14:24:10 +0100
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by Devise::SessionsController#new as HTML
   Rendering devise/sessions/new.html.erb within layouts/application
-  Rendered devise/shared/_links.html.erb (1.3ms)
-  Rendered devise/sessions/new.html.erb within layouts/application (24.8ms)
-Completed 200 OK in 261ms (Views: 238.5ms | ActiveRecord: 6.2ms)
+  Rendered devise/shared/_links.html.erb (3.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 314ms (Views: 276.5ms | ActiveRecord: 6.4ms)
 
 
-Started POST "/users/sign_in" for 127.0.0.1 at 2017-10-10 14:13:54 +0100
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-10-10 14:24:26 +0100
 Processing by Devise::SessionsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BdJ75/Dj5o8ONWOdtSdWoOjJRc6Yz12X6trffaTzNwo5yapeVcS0dM0Z4gOx7nIUYEAxMbNfN+U5jVLdtuXyAg==", "user"=>{"email"=>"q@q.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
-  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "q@q.com"], ["LIMIT", 1]]
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2017-10-10 13:13:54.763061"], ["last_sign_in_at", "2017-10-10 13:13:54.763061"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2017-10-10 13:13:54.765201"], ["id", 1]]
-  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cV0IxJEpY0pEp0BV+tCx5sulDH7v5P/gQFLXTSKMN+rEK495X1+8/tO7UBqPgHVbsSOvJ5mUB07x/+ndOVqk6A==", "user"=>{"email"=>"w@w.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "w@w.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2017-10-10 13:24:26.500407"], ["last_sign_in_at", "2017-10-10 13:24:26.500407"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2017-10-10 13:24:26.501569"], ["id", 2]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
 Redirected to http://localhost:3000/
-Completed 302 Found in 208ms (ActiveRecord: 5.5ms)
+Completed 302 Found in 184ms (ActiveRecord: 5.4ms)
 
 
-Started GET "/" for 127.0.0.1 at 2017-10-10 14:13:54 +0100
+Started GET "/" for 127.0.0.1 at 2017-10-10 14:24:26 +0100
 Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
   Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (0.6ms)
-  Rendered articles/index.html.erb within layouts/application (25.8ms)
-Completed 500 Internal Server Error in 47ms (ActiveRecord: 5.5ms)
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered collection of articles/_article.html.erb [1 times] (1.5ms)
+  Rendered articles/index.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 59ms (Views: 39.1ms | ActiveRecord: 5.9ms)
 
 
-  
-SyntaxError (/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
-d=( if can? :update, article );@output_buffer.safe_append='
-                              ^
-/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
-ze;@output_buffer.append=( end );@output_buffer.safe_append=
-                              ^
-/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
-          ensure
-                ^
-/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
-          end
-             ^):
-  
-app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
-app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
-app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
-app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__211380722547764347_70272828110880'
-Started GET "/" for 127.0.0.1 at 2017-10-10 14:15:17 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (1.5ms)
-  Rendered articles/index.html.erb within layouts/application (4.9ms)
-Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.2ms)
-
-
-  
-SyntaxError (/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
-fer.append=( if can? :update );@output_buffer.safe_append='
-                              ^
-/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
-ze;@output_buffer.append=( end );@output_buffer.safe_append=
-                              ^
-/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
-          ensure
-                ^
-/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
-          end
-             ^):
-  
-app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
-app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
-app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
-app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__211380722547764347_70272825510900'
-Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-10 14:15:21 +0100
-Processing by Devise::SessionsController#new as HTML
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-Redirected to http://localhost:3000/
-Filter chain halted as :require_no_authentication rendered or redirected
-Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-10-10 14:15:21 +0100
-Processing by ArticlesController#index as HTML
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
-  Rendering articles/index.html.erb within layouts/application
-  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = $1[0m  [["user_id", 1]]
-  Rendered collection of articles/_article.html.erb [2 times] (0.7ms)
-  Rendered articles/index.html.erb within layouts/application (4.3ms)
-Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.0ms)
-
-
-  
-SyntaxError (/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
-fer.append=( if can? :update );@output_buffer.safe_append='
-                              ^
-/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
-ze;@output_buffer.append=( end );@output_buffer.safe_append=
-                              ^
-/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
-          ensure
-                ^
-/Users/Tech-A22/classwork/project_2/showme_portfolio_project/showme_project/app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
-          end
-             ^):
-  
-app/views/articles/_article.html.erb:12: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
-app/views/articles/_article.html.erb:14: syntax error, unexpected keyword_end
-app/views/articles/_article.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
-app/views/articles/_article.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
-app/views/articles/index.html.erb:5:in `_app_views_articles_index_html_erb__211380722547764347_70272845857300'

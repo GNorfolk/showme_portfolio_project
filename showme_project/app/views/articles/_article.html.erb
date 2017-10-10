@@ -9,7 +9,5 @@
 
   <br>
   <%= link_to "Show Page", article if action_name == "index" %> 
-  <%= if can? :update %>
-    <%= link_to "Edit Page", edit_article_path(article) %>
-  <%= end %>
+  <%= link_to "Edit Page", edit_article_path(article) %>
 </div>
