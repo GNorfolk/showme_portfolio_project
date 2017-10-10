@@ -29,7 +29,7 @@ body {
 }
 
 .user-bar {
-	height: 35vh;
+	height: 32vh;
 	width: 200px;
 }
 
@@ -49,11 +49,11 @@ body {
 	margin: 50px 0;
 }
 
-a:visited {
+a:visited.side-link {
 	color: white;
 }
 
-a {
+a.side-link {
 	color: white;
 }
 

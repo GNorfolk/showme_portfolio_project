@@ -12,15 +12,14 @@
   	<div class="side-bar">
 
   		<div class="user-bar">
-  			<img src="user-image" class="user-image">
   			<p> USER NAME </p>
   			
     			<p>
             <% if user_signed_in? %>
               <p> Logged in as <br>
               <strong><%= current_user.email %></strong> <br><br>
-              <%= link_to "Edit Profile", edit_user_registration_path%>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              <%= link_to "Edit Profile", edit_user_registration_path, :class => "side-link" %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "side-link" %>
             <% if current_user.admin %>
               <p><strong>ADMIN</strong></p>
             <% else %>
@@ -29,8 +28,8 @@
 
             <% else %>
               <p> NOT LOGGED IN </p>
-              <%= link_to "Sign up", new_user_registration_path %>
-              <%= link_to "Login", new_user_session_path %>
+              <%= link_to "Sign up", new_user_registration_path, :class => "side-link" %>
+              <%= link_to "Login", new_user_session_path, :class => "side-link" %>
             <% end %>
           </p>
 
@@ -42,10 +41,10 @@
   		<div class="nav-bar">
   		
 	  		
-		  		<a href="/"><p>Full Portfolio</p></a>
-		  		<a href="/articles"><p>Personal Projects</p></a>
-		  		<a href="/articles/new"><p>New Project</p></a>
-		  		<a href="/users/edit"><p>View Profile</p></a>
+		  		<a href="/" class="side-link"><p>Full Portfolio</p></a>
+		  		<a href="/articles" class="side-link"><p>Personal Projects</p></a>
+		  		<a href="/articles/new" class="side-link"><p>New Project</p></a>
+		  		<a href="/users/edit" class="side-link"><p>View Profile</p></a>
 	  		
 
 	  		<div class="search-bar">
