@@ -9,24 +9,63 @@
   </head>
 
   <body>
-  	<p class="navbar-text pull-right">
-  		<% if user_signed_in? %>
-  			Logged in as <strong> <%= current_user.email %> </strong>
-  			<%= link_to "Edit Profile", edit_user_registration_path, :class => 'navbar-link' %>
-  			<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-  		<% else %>
-  			<%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %>
-  			<%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
-  		<% end %>
-  	</p>
+  	<div class="side-bar">
 
+  		<div class="user-bar">
+  			<img src="user-image" class="user-image">
+  			<p> USER NAME </p>
+  			
+    			<p>
+            <% if user_signed_in? %>
+              <p> Logged in as <br>
+              <strong><%= current_user.email %></strong> <br><br>
+              <%= link_to "Edit Profile", edit_user_registration_path%>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            <% if current_user.admin %>
+              <p><strong>ADMIN</strong></p>
+            <% else %>
+              <p><strong>MEMBER</strong></p>
+            <% end %>
+
+            <% else %>
+              <p> NOT LOGGED IN </p>
+              <%= link_to "Sign up", new_user_registration_path %>
+              <%= link_to "Login", new_user_session_path %>
+            <% end %>
+          </p>
+
+        
+        
+        </p>
+  		</div>
+
+  		<div class="nav-bar">
+  		
+	  		
+		  		<a href="/"><p>Full Portfolio</p></a>
+		  		<a href="/articles"><p>Personal Projects</p></a>
+		  		<a href="/articles/new"><p>New Project</p></a>
+		  		<a href="/users/edit"><p>View Profile</p></a>
+	  		
+
+	  		<div class="search-bar">
+        SEARCH BAR (tm)
+	  		</div> 
+
+        <img src="https://www.spartaglobal.com/img/sparta-global-logo-white.svg" class="sparta-logo">
+
+  		</div>
+ 
+  	</div>
+<span style="display:inline-block; vertical-align: top;">
   	<% if notice %>
   		<p class="alert alert-success"><%= notice %></p>
   	<% end %>
   	<% if alert %>
   		<p class="alert alert-danger"><%= alert %></p>
   	<% end %>
-
+    
     <%= yield %>
+    </span>
   </body>
 </html>
