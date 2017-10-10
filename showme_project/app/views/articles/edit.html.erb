@@ -1,1 +1,5 @@
-<%= render "form" %>
+<% if can? :create, @article %>
+  <%= render "form" %>
+<% else %>
+  <h1> ACCESS DENIED </h1>
+<% end %>
