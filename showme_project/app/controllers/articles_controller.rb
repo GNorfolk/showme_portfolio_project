@@ -14,11 +14,13 @@ class ArticlesController < ApplicationController
 
   def create
 
-    new_article = Article.create(article_params)
-    new_article.user_id = current_user.id
-    new_article.save
-
-    redirect_to new_article
+    @article = Article.create(article_params)
+    @article.user_id = current_user.id
+    if @article.save
+      redirect_to @article
+    else
+      render :new
+    end
 
 
   end
@@ -28,10 +30,12 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    article = Article.find(params[:id])
-    article.update(article_params)
-
-    redirect_to article
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit
+    end
   end
 
   def destroy
