@@ -4,6 +4,7 @@
   <p>Git Link: <strong><%= article.git_link %></strong></p>	
 
   <br>
+  <%= link_to "Home Page", "/" unless action_name == "index" %> 
   <%= link_to "Show Page", article if action_name == "index" %> 
   <% if can? :update, article %>
     <%= link_to "Edit Page", edit_article_path(article) %>
