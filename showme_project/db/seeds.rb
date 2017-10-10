@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-u1 = User.create! :email => 'q@q.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u1 = User.create! :email => 'q@q.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
 u2 = User.create! :email => 'w@w.com', :password => 'wwwwww', :password_confirmation => 'wwwwww'
 
 
