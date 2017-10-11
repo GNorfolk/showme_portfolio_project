@@ -1,9 +1,13 @@
 class ArticlesController < ApplicationController
   def index
-    if params[:search]
-      @articles = Article.search(params[:search])
-    else
-      @articles = current_user.articles
+    if !current_user
+      redirect_to root_path
+    elsif 
+      if params[:search]
+        @articles = Article.search(params[:search])
+      else
+        @articles = current_user.articles
+      end
     end
   end
 
@@ -12,7 +16,11 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    if !current_user
+      redirect_to root_path
+    elsif
+      @article = Article.new
+    end
   end
 
   def create
