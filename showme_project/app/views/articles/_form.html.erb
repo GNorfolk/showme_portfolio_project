@@ -46,8 +46,8 @@
 
     <%= f.label :difficulty, "Difficulty (1-10): " %>
     <br>
-    <%= f.range_field :difficulty, :min=>0, :max=>10, :class=>"slide", :id=>"slider3"%>
-    
+    <%= f.range_field :difficulty, :min=>0, :max=>10, :class=>"slide", :id=>"slider1"%>
+    <p><span id='slider-output'></span><p>
 
     <br>
 
@@ -55,3 +55,13 @@
 
   <% end %>
 </div>
+
+<script>
+
+  var slider = document.getElementById("slider1");
+  var output = document. getElementById("slider-output");
+  output.innerHTML = slider.value;
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
+</script>
