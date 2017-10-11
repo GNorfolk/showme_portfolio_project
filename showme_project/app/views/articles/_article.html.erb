@@ -1,12 +1,23 @@
 <div class="article">
-  <p>Title: <strong><%= article.title %></strong></p>
-  <p>Desrcription: <strong><%= article.description %></strong></p>
-  <p>Git Link: <strong><%= article.git_link %></strong></p>
-  <p>Written By: <strong><%= article.author %></strong></p>
 
-  <br>
+
+  <p class="title-box">Title: <strong><%= article.title %></strong></p>
+  <p class="author-box">Written By: <strong><%= article.author %></strong></p>
+  
+  
+  
+  <% unless action_name == "index" %>
+
+    <p>Description: <strong><%= article.description %></strong></p>
+    <p>Git Link: <strong><%= article.git_link %></strong></p>
+    <br>
+  <% end %>
+  
   <%= link_to "Home Page", "/" if action_name == "show" %> 
-  <%= link_to "Show Page", article unless action_name == "show" %> 
+  <%= link_to "View", article, :class => 'show-button' unless action_name == "show" %> 
+  
+  <img class='bg-image' src="<%= article.bg_image %>">
+
   <% if can? :update, article %>
     <%= link_to "Edit Page", edit_article_path(article) if action_name == "show" %>
     <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>

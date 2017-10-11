@@ -16,16 +16,19 @@
 
 body {
 	margin: 0 auto;
-	background-image: url("https://www.spartaglobal.com/img/bubbles.png");
+	/*background-image: url("https://www.spartaglobal.com/img/bubbles.png");
 	background-repeat: no-repeat;
 	background-position: top right;
-	background-size: 600px 400px;
-	background-color: rgb( 240, 240, 240);
+	background-size: 600px 400px;*/
+	background-color: rgb(220,220,220);
 }
 
 .side-bar {
-	height: 100vh;
-	width: 220px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 15.5%;
 	background-color: rgba(1,24,27,.95);
 	text-align: center;
 	display:inline-block;
@@ -35,17 +38,28 @@ body {
 	font-family: Khula;
 }
 
+.article-bar {
+	position: fixed;
+	top: 0;
+	left: 15.6%;
+	display: inline-block;
+	text-align: top;
+	width: 90%;
+	height: 100%;
+	overflow: scroll;
+}
+
 .user-bar {
 	height: 32vh;
-	width: 200px;
+	width: 100%;
 }
 
 .nav-bar {
-	height: 25vh;
-	width: 220px;
+	height: 30vh;
+	width: 100%;
 	background-color: rgba(1, 24, 27, 1);
 	font-size: 22px;
-	padding: 20px 0;
+	padding: 25px 0;
 
 }
 
@@ -68,13 +82,14 @@ a.side-link {
 
 .article {
 	display: inline-block;
-	height: 300px;
+	height: 390px;
 	width: 390px;
-	background-color: rgba(20, 20, 20, 0.5);
-	box-shadow: 4px 4px 4px black;
+	/*background-color: rgba(20, 20, 20, 0.5);*/
+	box-shadow: 5px 5px 12px black;
 	border-radius: 10px;
-	margin: 8px;
+	margin: 9px;
 	vertical-align: top;
+	z-index: -10;
 
 	}
 
@@ -82,7 +97,7 @@ a.side-link {
 	height: 100px;
 	width: 210px;
 	position: relative;
-	bottom: -2vh;
+	bottom: 0vh;
 }
 
 .sad-box {
@@ -94,4 +109,53 @@ a.side-link {
 	font-family: impact;
 	font-size: 50px;
 	border-radius: 25px;
+}
+
+.show-button {
+    background: #217491;
+    border: 5px solid black;
+    position: relative;
+    bottom: -148px;
+    right: -285px;
+    border-radius: 10px 0 10px 0;
+    padding: 0px 15px;
+    font-size: 34px;
+    color: white;
+    text-decoration: none;
+    font-family: Khula;
+}
+
+.title-box {
+		background: linear-gradient(135deg, rgba(1,40,27,0.95) 0%,rgba(0,15,8,0.95) 69%,rgba(0,0,0,0.15) 97%,rgba(0,0,0,0) 100%);
+		position: relative;
+    top: -28px;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    font-family: Khula;
+    font-size: 28px;
+    padding: 0 15px;
+    height: 86px;
+    color: white;
+}
+
+.author-box {    
+		position: relative;
+    bottom: -222px;
+    left: 0px;
+    border-radius: 0 0 0 10px;
+    background-color: rgba(1,24,27,.95);
+    width: max-content;
+    padding: 0 10px;
+    font-family: Khula;
+    color: white;
+}
+
+.bg-image {
+	  height: 100%;
+    width: 100%;
+    position: relative;
+    top: -238px;
+    left: -0px;
+    z-index: -5;
+    border-radius: 10px;
 }
