@@ -12,7 +12,7 @@
     <p>Git Link: <strong><%= article.git_link %></strong></p>
     <br>
   <% end %>
-  <br>
+  
   <%= link_to "Home Page", "/" if action_name == "show" %> 
   <%= link_to "View", article, :class => 'show-button' unless action_name == "show" %> 
   
