@@ -24,8 +24,11 @@ body {
 }
 
 .side-bar {
-	height: 100vh;
-	width: 220px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 15.5%;
 	background-color: rgba(1,24,27,.95);
 	text-align: center;
 	display:inline-block;
@@ -35,17 +38,28 @@ body {
 	font-family: Khula;
 }
 
+.article-bar {
+	position: fixed;
+	top: 0;
+	left: 220px;
+	display: inline-block;
+	text-align: top;
+	width: 90%;
+	height: 100%;
+	overflow: scroll;
+}
+
 .user-bar {
 	height: 32vh;
-	width: 200px;
+	width: 100%;
 }
 
 .nav-bar {
-	height: 25vh;
-	width: 220px;
+	height: 30vh;
+	width: 100%;
 	background-color: rgba(1, 24, 27, 1);
 	font-size: 22px;
-	padding: 20px 0;
+	padding: 25px 0;
 
 }
 
@@ -82,7 +96,7 @@ a.side-link {
 	height: 100px;
 	width: 210px;
 	position: relative;
-	bottom: -2vh;
+	bottom: 0vh;
 }
 
 .sad-box {
@@ -94,4 +108,13 @@ a.side-link {
 	font-family: impact;
 	font-size: 50px;
 	border-radius: 25px;
+}
+
+.show-button {
+	background: orange;
+	border: 2px solid black;
+	padding: 5px;
+	position: relative;
+	bottom: 0;
+	right: 0;
 }

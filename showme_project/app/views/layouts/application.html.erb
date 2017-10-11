@@ -46,23 +46,26 @@
 		  	<a href="/articles" class="side-link"><p>Personal Projects</p></a>
 		  	<a href="/articles/new" class="side-link"><p>New Project</p></a>
 		  	<a href="/users/edit" class="side-link"><p>View Profile</p></a>
+	  	
+      </div>
 	  		
-
-	  		<div class="search-bar">
+      <div class="search-bar">
         
-        <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
-        <%= submit_tag "Search" %>
-        <% end %>
+      <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
+      <%= submit_tag "Search" %>
+      
+      <% end %>
 	  		
         </div> 
 
         <img src="https://www.spartaglobal.com/img/sparta-global-logo-white.svg" class="sparta-logo">
 
-  		</div>
+  		
  
   	</div>
-<span style="display:inline-block; vertical-align: top;">
+
+    <div class="article-bar">
   	<% if notice %>
   		<p class="alert alert-success"><%= notice %></p>
   	<% end %>
@@ -71,6 +74,6 @@
   	<% end %>
     
     <%= yield %>
-    </span>
+    </div>
   </body>
 </html>
