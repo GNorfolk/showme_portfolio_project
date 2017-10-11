@@ -6,7 +6,7 @@
   
   
   
-  <% unless action_name == "index" %>
+  <% if action_name == "show" %>
 
     <p>Description: <strong><%= article.description %></strong></p>
     <p>Git Link: <strong><%= article.git_link %></strong></p>
