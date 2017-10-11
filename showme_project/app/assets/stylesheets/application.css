@@ -218,7 +218,7 @@ textarea{
     height: 40px;
 }
 
-#creation-header{
+.creation-new-header{
   margin: 0 auto;
   display: table;
   font-family: Raleway;
