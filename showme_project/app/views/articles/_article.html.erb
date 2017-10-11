@@ -1,7 +1,8 @@
 <div class="article">
   <p>Title: <strong><%= article.title %></strong></p>
   <p>Desrcription: <strong><%= article.description %></strong></p>
-  <p>Git Link: <strong><%= article.git_link %></strong></p>	
+  <p>Git Link: <strong><%= article.git_link %></strong></p>
+  <p>Written By: <strong><%= article.author %></strong></p>
 
   <br>
   <%= link_to "Home Page", "/" unless action_name == "index" %> 

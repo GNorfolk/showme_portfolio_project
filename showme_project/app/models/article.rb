@@ -20,7 +20,7 @@ class Article < ApplicationRecord
     # t.integer "user_id"
 
     def self.search(search)
-        where("title ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%")
+        where("title ILIKE ? OR description ILIKE ? OR author ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
     end
 
 end
