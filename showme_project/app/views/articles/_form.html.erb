@@ -46,12 +46,14 @@
 
     <%= f.label :difficulty, "Difficulty (1-5) " %>
     <p id='slider-output'><p>
-    <%= f.range_field :difficulty, :min=>1, :max=>5, :value=>1, :class=>"slide", :id=>"slider1"%>
-    
+    <div id='slider-dv'>
+      <%= f.range_field :difficulty, :min=>1, :max=>5, :value=>1, :class=>"slide", :id=>"slider1"%>
+    </div>
 
     <br>
 
     <%= f.submit %>
+    <br>
 
   <% end %>
 </div>

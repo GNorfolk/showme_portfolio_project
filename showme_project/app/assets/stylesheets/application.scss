@@ -219,6 +219,7 @@ textarea{
 #slider1{
     width: 300px;
     height: 40px;
+    align-content: center;
 }
 
 .creation-new-header{
@@ -231,6 +232,10 @@ textarea{
   font-size: 100px;
 }
 
+#slider-dv{
+  /*text-align: center;*/
+  padding-left: 25%
+}
 
 #search {
 	width: 134px;
