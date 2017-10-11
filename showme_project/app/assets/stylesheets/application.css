@@ -41,7 +41,7 @@ body {
 .article-bar {
 	position: fixed;
 	top: 0;
-	left: 220px;
+	left: 15.6%;
 	display: inline-block;
 	text-align: top;
 	width: 90%;
@@ -111,10 +111,33 @@ a.side-link {
 }
 
 .show-button {
-	background: orange;
-	border: 2px solid black;
-	padding: 5px;
+	background: green;
+  border: 2px solid black;
+  position: relative;
+  bottom: -85px;
+  right: -252px;
+  border-radius: 10px 0 10px 0;
+  padding: 10px;
+  font-size: 26px;
+}
+
+.title-box {
+	background-color: green;
 	position: relative;
-	bottom: 0;
-	right: 0;
+	top: -46px;
+	left: 0;
+	border-radius: 10px 10px 0 0;
+	font-family: Raleway;
+	font-size: 28px;
+	padding: 0 15px;
+}
+
+.author-box {
+  position: relative;
+  bottom: -142px;
+  left: 0px;
+  border-radius: 0 0 0 10px;
+  background-color: green;
+  width: max-content;
+  padding: 0 10px;
 }
