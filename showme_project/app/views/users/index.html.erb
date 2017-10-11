@@ -4,7 +4,7 @@
 	<button>Delete Account</button>
 	
 	<% if !e.admin %> 
-		<%= link_to 'Promote to Admin', users_path(e), method: :put %>
+		<%= link_to 'Promote to Admin', "/users/#{e.id}", method: :put %>
 	<% end %>
 	
 	<br>
