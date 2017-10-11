@@ -14,40 +14,40 @@
 <div id='form-body'>
   <%= form_for(@article) do |f| %>
 
-    <%= f.label :title, "Title: " %>
+    <%= f.label :title, "Title " %>
     <br>
     <%= f.text_field :title, size: 70 %>
 
     <br> <br>
 
-    <%= f.label :description, "Description: " %> 
+    <%= f.label :description, "Description " %> 
     <br>
     <%= f.text_area :description, size: "70x20" %>
 
     <br> <br>
 
-    <%= f.label :bg_image, "Background Image: " %>
+    <%= f.label :bg_image, "Background Image " %>
     <br>
     <%= f.text_field :bg_image, size: 70 %>
 
     <br> <br>
 
-    <%= f.label :proj_image, "Project Image: " %>
+    <%= f.label :proj_image, "Project Image " %>
     <br>
     <%= f.text_field :proj_image, size: 70 %>
 
     <br> <br>
 
-    <%= f.label :git_link, "GitHub URL: " %>
+    <%= f.label :git_link, "GitHub URL " %>
     <br>
     <%= f.text_field :git_link, size: 70 %>
 
     <br> <br>
 
-    <%= f.label :difficulty, "Difficulty (1-10): " %>
-    <br>
-    <%= f.range_field :difficulty, :min=>0, :max=>10, :class=>"slide", :id=>"slider1"%>
-    <p><span id='slider-output'></span><p>
+    <%= f.label :difficulty, "Difficulty (1-5) " %>
+    <p id='slider-output'><p>
+    <%= f.range_field :difficulty, :min=>1, :max=>5, :value=>1, :class=>"slide", :id=>"slider1"%>
+    
 
     <br>
 
