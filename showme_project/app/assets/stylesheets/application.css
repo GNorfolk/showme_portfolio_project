@@ -36,6 +36,7 @@ body {
 	font-size: 22px;
 	background-attachment: fixed;
 	font-family: Khula;
+	font-weight: 100;
 }
 
 .article-bar {
@@ -136,6 +137,7 @@ a.side-link {
     padding: 0 15px;
     height: 86px;
     color: white;
+    font-weight: 100;
 }
 
 .author-box {    
@@ -158,4 +160,18 @@ a.side-link {
     left: -0px;
     z-index: -5;
     border-radius: 10px;
+}
+
+.custom-alert {
+	margin: 0 auto;
+	display: block;
+	color: white;
+	font-family: Raleway;
+	font-weight: 100;
+	background-color: rgb(1, 40, 27);
+	border: black 1px solid;
+	width: max-content;
+	padding: 5px 25px;
+	border-radius: 5px;
+
 }
