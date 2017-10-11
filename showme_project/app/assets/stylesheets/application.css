@@ -16,17 +16,23 @@
 
 body {
 	margin: 0 auto;
-	background-color: aliceblue;
+	background-image: url("https://www.spartaglobal.com/img/bubbles.png");
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-size: 600px 400px;
+	background-color: rgb( 240, 240, 240);
 }
 
 .side-bar {
 	height: 100vh;
 	width: 220px;
-	background-color: darkblue;
+	background-color: rgba(1,24,27,.95);
 	text-align: center;
 	display:inline-block;
 	color: lightgray;
 	font-size: 22px;
+	background-attachment: fixed;
+	font-family: Khula;
 }
 
 .user-bar {
@@ -37,7 +43,7 @@ body {
 .nav-bar {
 	height: 25vh;
 	width: 220px;
-	background-color: blue;
+	background-color: rgba(1, 24, 27, 1);
 	font-size: 22px;
 	padding: 20px 0;
 
@@ -52,18 +58,22 @@ body {
 
 a:visited.side-link {
 	color: white;
+	text-decoration: none;
 }
 
 a.side-link {
 	color: white;
+	text-decoration: none;
 }
 
 .article {
 	display: inline-block;
 	height: 300px;
-	width: 300px;
-	background-color: lightblue;
-	margin: 10px;
+	width: 390px;
+	background-color: rgba(20, 20, 20, 0.5);
+	box-shadow: 4px 4px 4px black;
+	border-radius: 10px;
+	margin: 8px;
 	vertical-align: top;
 
 	}
@@ -72,7 +82,7 @@ a.side-link {
 	height: 100px;
 	width: 210px;
 	position: relative;
-	bottom: -6vh;
+	bottom: -2vh;
 }
 
 .sad-box {
