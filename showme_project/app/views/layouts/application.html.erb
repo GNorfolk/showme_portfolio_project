@@ -17,15 +17,15 @@
 
         <% if user_signed_in? %>
   			  <p><%= current_user.name %></p>
-  			
+  			  <div class="user-portrait"></div>
     	    <p>
-            <p> Logged in as <br><%= current_user.email %> <br><br>
+             Logged in as <br><%= current_user.email %> <br>
               <%= link_to "Edit Profile", edit_user_registration_path, :class => "side-link" %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "side-link" %>
               <% if current_user.admin %>
-                <p>ADMIN</p>
+                <span style="color:red">ADMIN</span>
               <% else %>
-                <p>MEMBER</p>
+                MEMBER
               <% end %>
 
               <% else %>
@@ -33,7 +33,7 @@
                 <%= link_to "Sign up", new_user_registration_path, :class => "side-link" %>
                 <%= link_to "Login", new_user_session_path, :class => "side-link" %>
               <% end %>
-            </p>
+          
 
         
         
