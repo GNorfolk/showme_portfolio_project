@@ -16,11 +16,11 @@
 
 body {
 	margin: 0 auto;
-	background-image: url("https://www.spartaglobal.com/img/bubbles.png");
+	/*background-image: url("https://www.spartaglobal.com/img/bubbles.png");
 	background-repeat: no-repeat;
 	background-position: top right;
-	background-size: 600px 400px;
-	background-color: rgb( 240, 240, 240);
+	background-size: 600px 400px;*/
+	background-color: rgb(220,220,220);
 }
 
 .side-bar {
@@ -85,9 +85,9 @@ a.side-link {
 	height: 390px;
 	width: 390px;
 	/*background-color: rgba(20, 20, 20, 0.5);*/
-	box-shadow: 4px 4px 4px black;
+	box-shadow: 5px 5px 12px black;
 	border-radius: 10px;
-	margin: 8px;
+	margin: 9px;
 	vertical-align: top;
 	z-index: -10;
 
@@ -112,7 +112,7 @@ a.side-link {
 }
 
 .show-button {
-    background: #34beef;
+    background: #217491;
     border: 5px solid black;
     position: relative;
     bottom: -148px;
@@ -126,7 +126,7 @@ a.side-link {
 }
 
 .title-box {
-		background: linear-gradient(135deg, rgba(1,24,27,0.95) 0%,rgba(0,7,8,0.95) 69%,rgba(0,0,0,0.15) 97%,rgba(0,0,0,0) 100%);
+		background: linear-gradient(135deg, rgba(1,40,27,0.95) 0%,rgba(0,15,8,0.95) 69%,rgba(0,0,0,0.15) 97%,rgba(0,0,0,0) 100%);
 		position: relative;
     top: -28px;
     left: 0;
