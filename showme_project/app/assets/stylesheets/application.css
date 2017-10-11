@@ -113,21 +113,21 @@ a.side-link {
 }
 
 .show-button {
-    background: #217491;
+    background: rgba(0, 20, 10, 0.8);
     border: 5px solid black;
     position: relative;
-    bottom: -148px;
-    right: -285px;
+    bottom: -159px;
+    right: -299px;
     border-radius: 10px 0 10px 0;
     padding: 0px 15px;
-    font-size: 34px;
+    font-size: 26px;
     color: white;
     text-decoration: none;
     font-family: Khula;
 }
 
 .title-box {
-		background: linear-gradient(135deg, rgba(1,40,27,0.95) 0%,rgba(0,15,8,0.95) 69%,rgba(0,0,0,0.15) 97%,rgba(0,0,0,0) 100%);
+		background: linear-gradient(135deg, rgba(40,53,39,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(38,38,38,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
 		position: relative;
     top: -28px;
     left: 0;
@@ -156,7 +156,7 @@ a.side-link {
 	  height: 100%;
     width: 100%;
     position: relative;
-    top: -238px;
+    top: -226px;
     left: -0px;
     z-index: -5;
     border-radius: 10px;
