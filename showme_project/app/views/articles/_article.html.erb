@@ -5,10 +5,10 @@
   <p>Written By: <strong><%= article.author %></strong></p>
 
   <br>
-  <%= link_to "Home Page", "/" unless action_name == "index" %> 
-  <%= link_to "Show Page", article if action_name == "index" %> 
+  <%= link_to "Home Page", "/" if action_name == "show" %> 
+  <%= link_to "Show Page", article unless action_name == "show" %> 
   <% if can? :update, article %>
-    <%= link_to "Edit Page", edit_article_path(article) unless action_name == "index" %>
-    <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } unless action_name == "index" %>
+    <%= link_to "Edit Page", edit_article_path(article) if action_name == "show" %>
+    <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
   <% end %>
 </div>
