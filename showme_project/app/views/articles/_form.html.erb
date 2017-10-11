@@ -14,26 +14,36 @@
 
 <%= form_for(@article) do |f| %>
 
-  <%= f.label :title %>
+  <%= f.label :title, "Title: " %>
   <%= f.text_field :title %>
+  <br>
+ <%= f.label :description, "Description: " %> 
+  <br>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+ 
+  <%= f.text_area :description, size: "150x40" %>
 
-  <%= f.label :bg_image %>
+  <br>
+
+  <%= f.label :bg_image, "Background Image: " %>
   <%= f.text_field :bg_image %>
 
   <br>
 
-  <%= f.label :proj_image %>
+  <%= f.label :proj_image, "Project Image: " %>
   <%= f.text_field :proj_image %>
 
-  <%= f.label :git_link %>
+  <br>
+
+  <%= f.label :git_link, "GitHub URL: " %>
   <%= f.text_field :git_link %>
 
-  <%= f.label :difficulty %>
+  <br>
+
+  <%= f.label :difficulty, "Difficulty (1-5): " %>
   <%= f.number_field :difficulty %>
 
+  <br>
 
   <%= f.submit %>
 
