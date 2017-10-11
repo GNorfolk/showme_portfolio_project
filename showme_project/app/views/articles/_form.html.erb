@@ -11,46 +11,47 @@
 
 <% end %>
 
+<div id='form-body'>
+  <%= form_for(@article) do |f| %>
 
-<%= form_for(@article) do |f| %>
+    <%= f.label :title, "Title: " %>
+    <br>
+    <%= f.text_field :title, size: 70 %>
 
-  <%= f.label :title, "Title: " %>
-  <br>
-  <%= f.text_field :title %>
+    <br> <br>
 
-  <br>
+    <%= f.label :description, "Description: " %> 
+    <br>
+    <%= f.text_area :description, size: "70x20" %>
 
-  <%= f.label :description, "Description: " %> 
-  <br>
-  <%= f.text_area :description, size: "150x40" %>
+    <br> <br>
 
-  <br>
+    <%= f.label :bg_image, "Background Image: " %>
+    <br>
+    <%= f.text_field :bg_image, size: 70 %>
 
-  <%= f.label :bg_image, "Background Image: " %>
-  <br>
-  <%= f.text_field :bg_image %>
+    <br> <br>
 
-  <br>
+    <%= f.label :proj_image, "Project Image: " %>
+    <br>
+    <%= f.text_field :proj_image, size: 70 %>
 
-  <%= f.label :proj_image, "Project Image: " %>
-  <br>
-  <%= f.text_field :proj_image %>
+    <br> <br>
 
-  <br>
+    <%= f.label :git_link, "GitHub URL: " %>
+    <br>
+    <%= f.text_field :git_link, size: 70 %>
 
-  <%= f.label :git_link, "GitHub URL: " %>
-  <br>
-  <%= f.text_field :git_link %>
+    <br> <br>
 
-  <br>
+    <%= f.label :difficulty, "Difficulty (1-10): " %>
+    <br>
+    <%= f.range_field :difficulty, :min=>0, :max=>10, :class=>"slide", :id=>"slider3"%>
+    
 
-  <%= f.label :difficulty, "Difficulty (1-5): " %>
-  <br>
-  <%= f.number_field :difficulty %>
+    <br>
 
-  <br>
+    <%= f.submit %>
 
-  <%= f.submit %>
-
-
-<% end %>
+  <% end %>
+</div>
