@@ -14,6 +14,10 @@
  *= require_self
  */
 
+/* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 body {
 	margin: 0 auto;
 	/*background-image: url("https://www.spartaglobal.com/img/bubbles.png");
@@ -128,7 +132,7 @@ a.side-link {
     background: rgba(0, 20, 10, 0.8);
     border: 5px solid black;
     position: relative;
-    bottom: -159px;
+    bottom: -220px;
     right: -299px;
     border-radius: 10px 0 10px 0;
     padding: 0px 15px;
@@ -141,7 +145,7 @@ a.side-link {
 .title-box {
 		background: linear-gradient(135deg, rgba(40,53,39,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(38,38,38,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
 		position: relative;
-    top: -28px;
+    top: 0px;
     left: 0;
     border-radius: 10px 10px 0 0;
     font-family: Khula;
@@ -154,7 +158,7 @@ a.side-link {
 
 .author-box {    
 		position: relative;
-    bottom: -222px;
+    bottom: -274px;
     left: 0px;
     border-radius: 0 0 0 10px;
     background-color: rgba(1,24,27,.95);
@@ -168,7 +172,7 @@ a.side-link {
 	  height: 100%;
     width: 100%;
     position: relative;
-    top: -226px;
+    top: -163px;
     left: -0px;
     z-index: -5;
     border-radius: 10px;
