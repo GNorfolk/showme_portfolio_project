@@ -6,8 +6,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Khula" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Khula:300,400,600,700,800" rel="stylesheet">
   </head>
 
   <body>
@@ -17,15 +17,15 @@
 
         <% if user_signed_in? %>
   			  <p><%= current_user.name %></p>
-  			
+  			  <div class="user-portrait"></div>
     	    <p>
-            <p> Logged in as <br> <strong><%= current_user.email %></strong> <br><br>
+             Logged in as <br><%= current_user.email %> <br>
               <%= link_to "Edit Profile", edit_user_registration_path, :class => "side-link" %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "side-link" %>
               <% if current_user.admin %>
-                <p><strong>ADMIN</strong></p>
+                <span style="color:red">ADMIN</span>
               <% else %>
-                <p><strong>MEMBER</strong></p>
+                MEMBER
               <% end %>
 
               <% else %>
@@ -33,7 +33,7 @@
                 <%= link_to "Sign up", new_user_registration_path, :class => "side-link" %>
                 <%= link_to "Login", new_user_session_path, :class => "side-link" %>
               <% end %>
-            </p>
+          
 
         
         
@@ -67,10 +67,10 @@
 
     <div class="article-bar">
   	<% if notice %>
-  		<p class="alert alert-success"><%= notice %></p>
+  		<p class="alert alert-success custom-alert"><%= notice %></p>
   	<% end %>
   	<% if alert %>
-  		<p class="alert alert-danger"><%= alert %></p>
+  		<p class="alert alert-danger custom-alert"><%= alert %></p>
   	<% end %>
     
     <%= yield %>
