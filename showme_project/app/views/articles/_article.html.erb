@@ -1,7 +1,9 @@
 <div class="article">
-  <img class='bg-image' src="image">
+
   <p class="title-box">Title: <strong><%= article.title %></strong></p>
   <p class="author-box">Written By: <strong><%= article.author %></strong></p>
+  
+  
   
   <% unless action_name == "index" %>
 
@@ -11,7 +13,10 @@
   <% end %>
 
   <%= link_to "Home Page", "/" unless action_name == "index" %> 
-  <%= link_to "Show Page", article, :class => 'show-button' if action_name == "index" %> 
+  <%= link_to "View", article, :class => 'show-button' if action_name == "index" %> 
+  
+  <img class='bg-image' src="<%= article.bg_image %>">
+
   <% if can? :update, article %>
     <%= link_to "Edit Page", edit_article_path(article) unless action_name == "index" %>
     <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } unless action_name == "index" %>

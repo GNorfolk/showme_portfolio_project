@@ -82,13 +82,14 @@ a.side-link {
 
 .article {
 	display: inline-block;
-	height: 300px;
+	height: 390px;
 	width: 390px;
-	background-color: rgba(20, 20, 20, 0.5);
+	/*background-color: rgba(20, 20, 20, 0.5);*/
 	box-shadow: 4px 4px 4px black;
 	border-radius: 10px;
 	margin: 8px;
 	vertical-align: top;
+	z-index: -10;
 
 	}
 
@@ -111,33 +112,50 @@ a.side-link {
 }
 
 .show-button {
-	background: green;
-  border: 2px solid black;
-  position: relative;
-  bottom: -85px;
-  right: -252px;
-  border-radius: 10px 0 10px 0;
-  padding: 10px;
-  font-size: 26px;
+    background: #34beef;
+    border: 5px solid black;
+    position: relative;
+    bottom: -148px;
+    right: -285px;
+    border-radius: 10px 0 10px 0;
+    padding: 0px 15px;
+    font-size: 34px;
+    color: white;
+    text-decoration: none;
+    font-family: Khula;
 }
 
 .title-box {
-	background-color: green;
-	position: relative;
-	top: -46px;
-	left: 0;
-	border-radius: 10px 10px 0 0;
-	font-family: Raleway;
-	font-size: 28px;
-	padding: 0 15px;
+		background: linear-gradient(135deg, rgba(1,24,27,0.95) 0%,rgba(0,7,8,0.95) 69%,rgba(0,0,0,0.15) 97%,rgba(0,0,0,0) 100%);
+		position: relative;
+    top: -28px;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    font-family: Khula;
+    font-size: 28px;
+    padding: 0 15px;
+    height: 86px;
+    color: white;
 }
 
-.author-box {
-  position: relative;
-  bottom: -142px;
-  left: 0px;
-  border-radius: 0 0 0 10px;
-  background-color: green;
-  width: max-content;
-  padding: 0 10px;
+.author-box {    
+		position: relative;
+    bottom: -222px;
+    left: 0px;
+    border-radius: 0 0 0 10px;
+    background-color: rgba(1,24,27,.95);
+    width: max-content;
+    padding: 0 10px;
+    font-family: Khula;
+    color: white;
+}
+
+.bg-image {
+	  height: 100%;
+    width: 100%;
+    position: relative;
+    top: -238px;
+    left: -0px;
+    z-index: -5;
+    border-radius: 10px;
 }
