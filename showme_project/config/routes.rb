@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'users', to: 'users#index'
+
+  put 'users/:id', to: 'users#update'
+
   resources :articles
 
   root "static#home"

@@ -1,0 +1,12 @@
+<% @users.each do |e| %>
+
+	<%= e.name %>
+	<button>Delete Account</button>
+	
+	<% if !e.admin %> 
+		<%= link_to 'Promote to Admin', users_path(e), method: :put %>
+	<% end %>
+	
+	<br>
+
+<% end %>
