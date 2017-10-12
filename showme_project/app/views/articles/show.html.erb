@@ -35,7 +35,11 @@
 
 
 
+
+
   <div class="show-buttons">
+
+    <p> <%= link_to "View PDF", article_path(@article, format: "pdf") %> </p>
   
   <%= link_to "Home Page", "/" if @action_name == "show" %> 
   <%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
