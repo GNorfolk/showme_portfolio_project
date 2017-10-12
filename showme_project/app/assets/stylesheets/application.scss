@@ -240,7 +240,7 @@ textarea {
 .show-title {
 	padding-left: 0px;
 	padding-right: 0px;
-	text-align: center;
+  text-align: center;
 	margin-top: -10px;
 	height: 58px;
 }
@@ -265,9 +265,41 @@ textarea {
 
 .title-box-text {
 	margin-top: 10px;
+  margin-right: 100px;
 	font-family: Raleway;
 	font-weight: 100;
   color: #5d6168;
   font-size: 80px;
   letter-spacing: 1px;
+}
+
+.show-project-description {
+  border:dashed 2px grey;
+  margin-left: 6%;
+  width: 80%;
+
+}
+
+.show-description-text {
+  padding: 20px;
+
+}
+
+
+
+.show-buttons {
+  float: right;
+  margin-right: 15%;
+}
+
+.show-image-wrapper {
+  margin-top: 50px;
+  margin-left: 5%;
+}
+
+.show-image {
+  text-align: center;
+  margin-left: 10%;
+  max-height: 500px;
+  max-width: 750px;
 }
