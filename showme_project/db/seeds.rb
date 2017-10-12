@@ -8,7 +8,23 @@
 
 
 u1 = User.create! :name => 'Tundra Swan', :email => 'q@q.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
-u2 = User.create! :name => 'Caramel Swan', :email => 'w@w.com', :password => 'wwwwww', :password_confirmation => 'wwwwww'
+u2 = User.create! :name => 'Caramel Swan', :email => 'w@w.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u3 = User.create! :name => 'Correct Swan', :email => 'e@e.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
+u4 = User.create! :name => 'Bootstrap Swan', :email => 'r@r.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u5 = User.create! :name => 'Indignant Swan', :email => 't@t.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
+u6 = User.create! :name => 'Excited Swan', :email => 'y@y.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u7 = User.create! :name => 'Rude Swan', :email => 'u@u.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
+u8 = User.create! :name => 'Matz is nice Swan', :email => 'i@i.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u9 = User.create! :name => 'Cold Swan', :email => 'o@o.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
+u10 = User.create! :name => 'Cloud based Swan', :email => 'p@p.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u11 = User.create! :name => 'Dark Swan', :email => 'a@a.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
+u12 = User.create! :name => 'Great Swan', :email => 's@s.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u13 = User.create! :name => 'The Swan', :email => 'd@d.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
+u14 = User.create! :name => 'Jordaine Swan', :email => 'f@f.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u15 = User.create! :name => 'Fluid Swan', :email => 'g@g.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
+u16 = User.create! :name => 'Solid Swan', :email => 'h@h.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
+u17 = User.create! :name => 'Snake Swan', :email => 'j@j.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq', :admin => true
+u18 = User.create! :name => 'Rigatoni Swan', :email => 'k@k.com', :password => 'qqqqqq', :password_confirmation => 'qqqqqq'
 
 Article.create!(title: "Ruby on Rails Inventory Project", description: "So this is the week 3 project where we made a game using HTML, CSS and JavaScript.", bg_image: "http://www.homewallmurals.co.uk/ekmps/shops/allwallpapers/images/blue-city-skyline-at-night-wall-mural-3944-p.jpg", proj_image: "p_url", git_link: "https://github.com/github/gitignore", difficulty: 3, user_id: u1.id, author: u1.name)
 Article.create!(title: "Javascript Game Project", description: "This is the week 6 project where we made a basic project portfolio application using ruby on rails and web dev languages.", bg_image: "https://iso.500px.com/wp-content/uploads/2014/07/hong-kong-the-peak-view.jpg", proj_image: "p_url", git_link: "https://github.com/github/gitignore", difficulty: 4, user_id: u1.id, author: u1.name)

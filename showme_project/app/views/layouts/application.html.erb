@@ -49,6 +49,9 @@
 		  	<a href="/articles" class="side-link"><p>Personal Projects</p></a>
 		  	<a href="/articles/new" class="side-link"><p>New Project</p></a>
 		  	<a href="/users/edit" class="side-link"><p>View Profile</p></a>
+        <% if current_user.admin %>
+          <a href="/users" class="side-link"><p>User Index</p></a>
+        <% end %>
 	  	
       </div>
 	  		

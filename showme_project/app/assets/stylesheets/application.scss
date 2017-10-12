@@ -241,6 +241,20 @@ textarea{
 	width: 134px;
 }
 
+.user-cell {
+	font-family: Raleway;
+	font-size: 22px;
+	border: 1px black solid;
+	padding: 3px;
+	text-align: center;
+}
+
+.custom-table {
+	border: 3px black solid;
+	position: absolute;
+	top: 10%;
+	left: 25%;
+
 
 .show-title {
 	padding-left: 0px;
@@ -276,6 +290,5 @@ textarea{
 }
 
 hr {
-	
 	margin: 0px;
 }
