@@ -259,9 +259,10 @@ textarea{
 .show-title {
 	padding-left: 0px;
 	padding-right: 0px;
-	text-align: center;
+	/*text-align: center;*/
 	margin-top: -10px;
 	height: 58px;
+	
 }
 
 
@@ -278,17 +279,28 @@ textarea{
 
 .show-links {
 
-	text-align: center;
 	padding-right: 10%;
+	margin-top: 40px;
 }
 
 
 .title-box-text {
 	margin-top: 10px;
-	color: white;
+
+	font-family: Raleway;
+	font-weight: 100;
+  	color: #5d6168;
+  	font-size: 80px;
+  	letter-spacing: 1px;
 
 }
 
 hr {
 	margin: 0px;
 }
+
+
+
+
+
+
