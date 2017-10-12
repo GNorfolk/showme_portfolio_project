@@ -11,31 +11,59 @@
 
 <% end %>
 
+<div id='form-body'>
+  <%= form_for(@article) do |f| %>
 
-<%= form_for(@article) do |f| %>
+    <%= f.label :title, "Title " %>
+    <br>
+    <%= f.text_field :title, size: 70 %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+    <br> <br>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+    <%= f.label :description, "Description " %> 
+    <br>
+    <%= f.text_area :description, size: "70x20" %>
 
-  <%= f.label :bg_image %>
-  <%= f.text_field :bg_image %>
+    <br> <br>
 
-  <br>
+    <%= f.label :bg_image, "Background Image " %>
+    <br>
+    <%= f.text_field :bg_image, size: 70 %>
 
-  <%= f.label :proj_image %>
-  <%= f.text_field :proj_image %>
+    <br> <br>
 
-  <%= f.label :git_link %>
-  <%= f.text_field :git_link %>
+    <%= f.label :proj_image, "Project Image " %>
+    <br>
+    <%= f.text_field :proj_image, size: 70 %>
 
-  <%= f.label :difficulty %>
-  <%= f.number_field :difficulty %>
+    <br> <br>
 
+    <%= f.label :git_link, "GitHub URL " %>
+    <br>
+    <%= f.text_field :git_link, size: 70 %>
 
-  <%= f.submit %>
+    <br> <br>
 
+    <%= f.label :difficulty, "Difficulty (1-5) " %>
+    <p id='slider-output'><p>
+    <div id='slider-dv'>
+      <%= f.range_field :difficulty, :min=>1, :max=>5, :value=>1, :class=>"slide", :id=>"slider1"%>
+    </div>
 
-<% end %>
+    <br>
+
+    <%= f.submit %>
+    <br>
+
+  <% end %>
+</div>
+
+<script>
+
+  var slider = document.getElementById("slider1");
+  var output = document. getElementById("slider-output");
+  output.innerHTML = slider.value;
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
+</script>

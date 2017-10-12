@@ -192,6 +192,52 @@ a.side-link {
 
 }
 
+
+#form-body {
+  margin: 0 auto;
+  display: table;
+  font-family: Raleway;
+  font-weight: 100;
+  color: #5d6168;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+
+textarea{
+  font-size: 18px;
+}
+
+#article_title, 
+#article_bg_image, 
+#article_proj_image,
+#article_git_link{
+  font-size: 18px;
+}
+
+#slider1{
+    width: 300px;
+    height: 40px;
+    align-content: center;
+}
+
+.creation-new-header{
+  margin: 0 auto;
+  display: table;
+  font-family: Raleway;
+  font-weight: 100;
+  color: #5d6168;
+  text-align: center;
+  font-size: 100px;
+}
+
+#slider-dv{
+  /*text-align: center;*/
+  padding-left: 25%
+}
+
 #search {
 	width: 134px;
 }
+
