@@ -73,11 +73,19 @@ class ArticlesController < ApplicationController
   end
 
 
-  def approve
+  def approveindex
   # lets the admin view unapproved articles and approve them
    @articles = Article.all.where(approved: false)
-
   end
+
+  def approveupdate
+    @article = Article.find(params[:id])
+    @article.approved = true
+    @article.save
+
+    redirect_to articles_approve_url
+  end
+
 
   protected
   # these methods are not accessible outside the class
