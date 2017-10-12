@@ -1,5 +1,8 @@
 <% if @articles.present? %>
+<!-- Checks to see if the article exsists -->
   <%= render @articles %>
+  <!-- ERB that renders the article partial to the page -->
 <% else %>
   <p class="sad-box">There are no articles containing the term(s) <%= params[:search] %>!</p>
+  <!-- If the article does not exist they are presented with a a message saying so -->
 <% end %>

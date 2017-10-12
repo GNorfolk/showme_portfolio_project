@@ -1,11 +1,12 @@
 
 <% if @article.errors.any? %>
-
+<!-- Checks for any validation errors -->
   <h3><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h3>
-
+<!-- displays the number of validation errors on the page -->
   <ul>
     <% @article.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
+      <!-- Actual error message displayed to screen -->
     <% end %>
   </ul>
 
@@ -13,35 +14,35 @@
 
 <div id='form-body'>
   <%= form_for(@article) do |f| %>
-
+  <!-- form helper which allows whats inputted into the form be pushed into the database -->
     <%= f.label :title, "Title " %>
     <br>
     <%= f.text_field :title, size: 70 %>
-
+    <!-- Title label and title entry field -->
     <br> <br>
 
     <%= f.label :description, "Description " %> 
     <br>
     <%= f.text_area :description, size: "70x20" %>
-
+    <!-- Description label and Description entry field -->
     <br> <br>
 
     <%= f.label :bg_image, "Background Image " %>
     <br>
     <%= f.text_field :bg_image, size: 70 %>
-
+    <!-- Background img label and Background img entry field -->
     <br> <br>
 
     <%= f.label :proj_image, "Project Image " %>
     <br>
     <%= f.text_field :proj_image, size: 70 %>
-
+    <!-- Project img label and Project img entry field -->
     <br> <br>
 
     <%= f.label :git_link, "GitHub URL " %>
     <br>
     <%= f.text_field :git_link, size: 70 %>
-
+    <!-- GitHub Url label and GitHub Url entry field -->
     <br> <br>
 
     <%= f.label :difficulty, "Difficulty (1-5) " %>
@@ -49,10 +50,11 @@
     <div id='slider-dv'>
       <%= f.range_field :difficulty, :min=>1, :max=>5, :value=>1, :class=>"slide", :id=>"slider1"%>
     </div>
-
+    <!-- Difficulty slider which allows the user to chose between a difficulty of 1 and 5 -->
     <br>
 
     <%= f.submit %>
+    <!-- Submit button which pushes the information in the form to the database. -->
     <br>
 
   <% end %>
@@ -61,9 +63,14 @@
 <script>
 
   var slider = document.getElementById("slider1");
+  // Variable that stores the slider
   var output = document. getElementById("slider-output");
+  // Variable that stores the output variable
   output.innerHTML = slider.value;
+  // Stores the slider value to the output variable
   slider.oninput = function() {
     output.innerHTML = this.value;
   }
+  // Function that updates the output variable in real time
 </script>
+<!-- Script that controls the behaviour of the slider -->
