@@ -223,11 +223,20 @@ textarea{
     left: 25%;
 }
 .show-title {
+<<<<<<< HEAD
+	padding-left: 0px;
+	padding-right: 0px;
+	/*text-align: center;*/
+	margin-top: -10px;
+	height: 58px;
+	
+=======
     padding-left: 0px;
     padding-right: 0px;
     text-align: center;
     margin-top: -10px;
     height: 58px;
+>>>>>>> d8c6134c98cf7c99f4e1a8da7cd007d1fb174aa5
 }
 .show-author {
     display: inline-block;
@@ -238,10 +247,37 @@ textarea{
     width: 30%;
 }
 .show-links {
+<<<<<<< HEAD
+
+	padding-right: 10%;
+	margin-top: 40px;
+=======
     text-align: center;
     padding-right: 10%;
+>>>>>>> d8c6134c98cf7c99f4e1a8da7cd007d1fb174aa5
 }
 .title-box-text {
+<<<<<<< HEAD
+	margin-top: 10px;
+
+	font-family: Raleway;
+	font-weight: 100;
+  	color: #5d6168;
+  	font-size: 80px;
+  	letter-spacing: 1px;
+
+}
+
+hr {
+	margin: 0px;
+}
+
+
+
+
+
+
+=======
     margin-top: 10px;
     color: white;
 }
@@ -249,3 +285,4 @@ textarea{
 hr {
     margin: 0px;
 }
+>>>>>>> d8c6134c98cf7c99f4e1a8da7cd007d1fb174aa5
