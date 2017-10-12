@@ -83,7 +83,7 @@ class ArticlesController < ApplicationController
     @article.approved = true
     @article.save
 
-    redirect_to articles_approve_url
+    redirect_to @article
   end
 
 

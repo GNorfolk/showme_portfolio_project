@@ -4,93 +4,99 @@
     <title>ShowmeProject</title>
     <%= csrf_meta_tags %>
 
-<!-- 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
-
-    <script src="https://use.fontawesome.com/dab4bca938.js"></script>
-
+    <!-- LINKS TO RELEVENT STYLESHEETS -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- LINKS TO RELEVENT FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Khula:300,400,600,700,800" rel="stylesheet">
+
+    <!-- LINK TO RELEVENT JS SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   </head>
 
   <body>
+
+    <!-- Side bar that is permanently on the left side of the screen -->
   	<div class="side-bar">
 
+      <!-- Section of the sidebar that displays the users details -->
   		<div class="user-bar">
 
         <% if user_signed_in? %>
   			  <p><%= current_user.name %></p>
   			  <div class="user-portrait"></div>
-    	    <p>
-             Logged in as <br><%= current_user.email %> <br>
-              <%= link_to "Edit Profile", edit_user_registration_path, :class => "side-link" %>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "side-link" %>
-              <% if current_user.admin %>
-                <span style="color:red">ADMIN</span>
-              <% else %>
+    	    <p>Logged in as <br><%= current_user.email %> <br>
+
+            <!-- Buttons that allow the user to edit their details or logout -->
+            <%= link_to "Edit Profile", edit_user_registration_path, :class => "side-link" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "side-link" %>
+            
+            <!-- Displays whether user is a member or an admin -->
+            <% if current_user.admin %>
+              <span style="color:red">ADMIN</span>
+            <% else %>
                 MEMBER
-              <% end %>
-
-              <% else %>
-                <p> NOT LOGGED IN </p>
-                <%= link_to "Sign up", new_user_registration_path, :class => "side-link" %>
-                <%= link_to "Login", new_user_session_path, :class => "side-link" %>
-              <% end %>
-          
-
-        
-        
+            <% end %>
           </p>
+
+        <!-- If user is not logged in will display the relevent signup buttons instead -->
+        <% else %>
+          <p> NOT LOGGED IN </p>
+          <%= link_to "Sign up", new_user_registration_path, :class => "side-link" %>
+          <%= link_to "Login", new_user_session_path, :class => "side-link" %>
+        <% end %>
+    
   		</div>
 
-  		<div class="nav-bar">
+      <!-- Section of the sidebar containing links to other sections of the site -->
+      <div class="nav-bar">
   		
 		  	<a href="/" class="side-link"><p>Full Portfolio</p></a>
-        <% if !user_signed_in? %>
-          <a href="/users/sign_in" class="side-link"><p>Personal Projects</p></a>
-          <a href="/users/sign_in" class="side-link"><p>New Project</p></a>
-          <a href="/users/sign_in" class="side-link"><p>View Profile</p></a>
-        <% end %>
-
-        <% if user_signed_in? %>
 		  	<a href="/articles" class="side-link"><p>Personal Projects</p></a>
 		  	<a href="/articles/new" class="side-link"><p>New Project</p></a>
 		  	<a href="/users/edit" class="side-link"><p>View Profile</p></a>
-          <% if current_user.admin %>
-            <a href="/users" class="side-link"><p>User Index</p></a>
-          <% end %>
-  	  	<% end %>
+        <!-- Only allows admins access to the users index page -->
+        <% if user_signed_in? && current_user.admin %>
+          <a href="/users" class="side-link"><p>User Index</p></a>
+          <a href="/articles/approve" class="side-link"><p>Unapproved Articles</p></a>
+        <% end %>
+      
       </div>
-	  		
+	  	
+      <!-- Section of the sidebar that allows articles to be searched through -->
       <div class="search-bar">
         
-      <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
-      <%= submit_tag "Search" %>
-      
-      <% end %>
-	  		
-        </div> 
+        <!-- form that exports text as :search into params, which is dealt with in the controller/model -->
+        <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
+          <%= submit_tag "Search" %>
+        <% end %>
+  	  		
+      </div> 
 
-        <img src="https://www.spartaglobal.com/img/sparta-global-logo-white.svg" class="sparta-logo">
+      <!-- Sparta logo at the bottom of the sidebar -->
+      <img src="https://www.spartaglobal.com/img/sparta-global-logo-white.svg" class="sparta-logo">	
 
-  		
- 
   	</div>
 
+
+    <!-- div containing the articles to the right of the sidebar -->
     <div class="article-bar">
-  	<% if notice %>
-  		<p class="alert alert-success custom-alert"><%= notice %></p>
-  	<% end %>
-  	<% if alert %>
-  		<p class="alert alert-danger custom-alert"><%= alert %></p>
-  	<% end %>
+  	
+      <% if notice %>
+  		  <p class="alert alert-success custom-alert"><%= notice %></p>
+      <% end %>
+  	
+      <% if alert %>
+  		  <p class="alert alert-danger custom-alert"><%= alert %></p>
+  	  <% end %>
     
-    <%= yield %>
+      <!-- yields to the current page content -->
+      <%= yield %>
+
     </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   </body>
 </html>
