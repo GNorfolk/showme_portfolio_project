@@ -36,13 +36,13 @@
     <%= f.label :proj_image, "Project Image " %>
     <br>
     <%= f.text_field :proj_image, size: 70 %>
-
+    <!-- Project img label and Project img entry field -->
     <br> <br>
 
     <%= f.label :git_link, "GitHub URL " %>
     <br>
     <%= f.text_field :git_link, size: 70 %>
-
+    <!-- GitHub Url label and GitHub Url entry field -->
     <br> <br>
 
     <%= f.label :difficulty, "Difficulty (1-5) " %>
@@ -50,10 +50,11 @@
     <div id='slider-dv'>
       <%= f.range_field :difficulty, :min=>1, :max=>5, :value=>1, :class=>"slide", :id=>"slider1"%>
     </div>
-
+    <!-- Difficulty slider which allows the user to chose between a difficulty of 1 and 5 -->
     <br>
 
     <%= f.submit %>
+    <!-- Submit button which pushes the information in the form to the database. -->
     <br>
 
   <% end %>
@@ -62,9 +63,14 @@
 <script>
 
   var slider = document.getElementById("slider1");
+  // Variable that stores the slider
   var output = document. getElementById("slider-output");
+  // Variable that stores the output variable
   output.innerHTML = slider.value;
+  // Stores the slider value to the output variable
   slider.oninput = function() {
     output.innerHTML = this.value;
   }
+  // Function that updates the output variable in real time
 </script>
+<!-- Script that controls the behaviour of the slider -->
