@@ -1,55 +1,45 @@
 <div class="container-fluid">
-  <div class="row show-title">
-    <div class="title-box1">
-      <h1 class="title-box-text"><%= @article.title %></h1>
-    </div>  
-  </div>
 
+	<div class="row show-title">
+		<div class="title-box1">
+		<h1 class="title-box-text"><%= @article.title %></h1>
+		</div>  
+	</div>
 
+	<div class="show-image-wrapper">
+		<img class='show-image' src="<%= @article.bg_image %>">
+	</div>
 
-  <div class="show-image-wrapper">
-    <img class='show-image' src="<%= @article.bg_image %>">
-  </div>
+	<div class="show-links">
+		<p class="show-author"><strong>Created by:</strong> <%= @article.author %></p>
+		<p class="show-author"><strong>Project difficulty:</strong> <%= @article.difficulty %></p>
+		<p class="show-author"><strong> <a href="<%= @article.git_link %>" class="button">Go To GitHub<i class="fa fa-github" aria-hidden="true"></i></a></strong></p>  
+	</div>  
 
-  <div class="show-links">
-    <p class="show-author"><strong>Created by:</strong> <%= @article.author %></p>
-    <p class="show-author"><strong>Project difficulty:</strong> <%= @article.difficulty %></p>
-    <p class="show-author"><strong> <a href="<%= @article.git_link %>" class="button">Go To GitHub<i class="fa fa-github" aria-hidden="true"></i></a></strong></p>  
-  </div>  
- 
 </div>
-  
-
 
 <div class="show-project-description">
-  
-  <% if action_name == "show" %>
-
-
-
-    <p class="show-description-text"><strong><%= @article.description %></strong></p>
-    <br>
-  <% end %>
-
+	<% if action_name == "show" %>
+		<p class="show-description-text">
+			<strong>
+				<%= markdown @article.description %>
+			</strong>
+		</p>
+		<br>
+	<% end %>
 </div>
 
+<div class="show-buttons">
+  <p> <%= link_to "View PDF", article_path(@article, format: "pdf") %> </p>
+	<%= link_to "Home Page", "/" if @action_name == "show" %> 
+	<%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
+	<% if can? :update, @article %>
+		<%= link_to "Edit Page", edit_article_path(@article) if action_name == "show" %>
+		<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
+	<% end %>
+</div>
 
-
-
-
-  <div class="show-buttons">
-
-    <p> <%= link_to "View PDF", article_path(@article, format: "pdf") %> </p>
-  
-  <%= link_to "Home Page", "/" if @action_name == "show" %> 
-  <%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
-  
-
-
-  <% if can? :update, @article %>
-    <%= link_to "Edit Page", edit_article_path(@article) if action_name == "show" %>
-    <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
-  <% end %>
-
-  </div>
-
+<div>
+	<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
