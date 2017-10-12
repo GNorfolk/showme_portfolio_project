@@ -1,9 +1,13 @@
 <% if can? :create, @article %>
+<!-- Checks to see if current user is an admin using cancan -->
 <h1 class= 'creation-new-header'> Edit Article </h1>
+<!-- Header which displays the current page -->
 <hr>
 <br>
 <br>
   <%= render "form" %>
+  <!-- render ERB which presents the form partial to the page -->
 <% else %>
   <h1> ACCESS DENIED </h1>
+  <!-- if the current user is not an admin they are presented with this message -->
 <% end %>

@@ -13,121 +13,104 @@
  *= require_tree .
  *= require_self
  */
-
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 body {
-	margin: 0 auto;
-	/*background-image: url("https://www.spartaglobal.com/img/bubbles.png");
-	background-repeat: no-repeat;
-	background-position: top right;
-	background-size: 600px 400px;*/
-	background-color: rgb(220,220,220);
+    margin: 0 auto;
+    /*background-image: url("https://www.spartaglobal.com/img/bubbles.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 600px 400px;*/
+    background-color: rgb(220,220,220);
 }
-
 .side-bar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 15.5%;
-	background-color: rgba(1,24,27,.95);
-	text-align: center;
-	display:inline-block;
-	color: lightgray;
-	font-size: 22px;
-	background-attachment: fixed;
-	font-family: Khula;
-	font-weight: 100;
-	box-shadow: 5px 0px 6px black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 15.5%;
+    background-color: rgba(1,24,27,.95);
+    text-align: center;
+    display:inline-block;
+    color: lightgray;
+    font-size: 22px;
+    background-attachment: fixed;
+    font-family: Khula;
+    font-weight: 100;
+    box-shadow: 5px 0px 6px black;
 }
-
 .article-bar {
-	position: fixed;
-	top: 0;
-	left: 15.6%;
-	display: inline-block;
-	text-align: top;
-	width: 90%;
-	height: 100%;
-	overflow: scroll;
+    position: fixed;
+    top: 0;
+    left: 15.6%;
+    display: inline-block;
+    text-align: top;
+    width: 90%;
+    height: 100%;
+    overflow: scroll;
 }
-
 .user-portrait {
-	background-image: url("https://www.thelocal.no/userdata/images/article/4e973e5ad789bea0884b80ede326ac3cc66cee2bd1696ab5a603d4057f7f4e9b.jpg");
-	width: 50px;
-	height: 50px;
-	margin: 0 auto;
-	background-size: 50px 50px;
-	border: 1px white solid;
-	border-radius: 25px;
-
+    background-image: url("https://www.thelocal.no/userdata/images/article/4e973e5ad789bea0884b80ede326ac3cc66cee2bd1696ab5a603d4057f7f4e9b.jpg");
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    background-size: 50px 50px;
+    border: 1px white solid;
+    border-radius: 25px;
 }
-
 .user-bar {
-	height: 36vh;
-	width: 100%;
+    height: 36vh;
+    width: 100%;
 }
-
 .nav-bar {
-	height: 30vh;
-	width: 100%;
-	background-color: rgba(1, 24, 27, 1);
-	font-size: 22px;
-	padding: 5px 0;
-
+    height: 30vh;
+    width: 100%;
+    background-color: rgba(1, 24, 27, 1);
+    font-size: 22px;
+    padding: 5px 0;
 }
-
 .search-bar {
-	height: 4vh;
-	width: 220px;
-	background-color: rgb(0, 0, 70);
-	margin: 50px 0;
+    height: 4vh;
+    width: 220px;
+    background-color: rgb(0, 0, 70);
+    margin: 50px 0;
 }
-
 a:visited.side-link {
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
-
 a.side-link {
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
-
 .article {
-	display: inline-block;
-	height: 390px;
-	width: 390px;
-	/*background-color: rgba(20, 20, 20, 0.5);*/
-	box-shadow: 5px 5px 12px black;
-	border-radius: 10px;
-	margin: 9px;
-	vertical-align: top;
-	z-index: -10;
-
-	}
-
+    display: inline-block;
+    height: 390px;
+    width: 390px;
+    /*background-color: rgba(20, 20, 20, 0.5);*/
+    box-shadow: 5px 5px 12px black;
+    border-radius: 10px;
+    margin: 9px;
+    vertical-align: top;
+    z-index: -10;
+    }
 .sparta-logo {
-	height: 100px;
-	width: 210px;
-	position: relative;
-	bottom: 0vh;
+    height: 100px;
+    width: 210px;
+    position: relative;
+    bottom: 0vh;
 }
-
 /*.sad-box {
-	background: darkblue ;
-	padding: 25px;
-	position: absolute;
-	top: 40%;
-	left: 240px;
-	font-family: impact;
-	font-size: 50px;
-	border-radius: 25px;
+    background: darkblue ;
+    padding: 25px;
+    position: absolute;
+    top: 40%;
+    left: 240px;
+    font-family: impact;
+    font-size: 50px;
+    border-radius: 25px;
 }*/
-
 .show-button {
     background: rgba(0, 20, 10, 0.8);
     border: 5px solid black;
@@ -141,10 +124,9 @@ a.side-link {
     text-decoration: none;
     font-family: Khula;
 }
-
 .title-box {
-		background: linear-gradient(135deg, rgba(40,53,39,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(38,38,38,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
-		position: relative;
+        background: linear-gradient(135deg, rgba(40,53,39,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(38,38,38,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
+        position: relative;
     top: 0px;
     left: 0;
     border-radius: 10px 10px 0 0;
@@ -155,9 +137,8 @@ a.side-link {
     color: white;
     font-weight: 100;
 }
-
 .author-box {    
-		position: relative;
+        position: relative;
     bottom: -274px;
     left: 0px;
     border-radius: 0 0 0 10px;
@@ -167,9 +148,8 @@ a.side-link {
     font-family: Khula;
     color: white;
 }
-
 .bg-image {
-	  height: 100%;
+      height: 100%;
     width: 100%;
     position: relative;
     top: -163px;
@@ -177,22 +157,18 @@ a.side-link {
     z-index: -5;
     border-radius: 10px;
 }
-
 .custom-alert {
-	margin: 0 auto;
-	display: block;
-	color: white;
-	font-family: Raleway;
-	font-weight: 100;
-	background-color: rgb(1, 40, 27);
-	border: black 1px solid;
-	width: max-content;
-	padding: 5px 25px;
-	border-radius: 5px;
-
+    margin: 0 auto;
+    display: block;
+    color: white;
+    font-family: Raleway;
+    font-weight: 100;
+    background-color: rgb(1, 40, 27);
+    border: black 1px solid;
+    width: max-content;
+    padding: 5px 25px;
+    border-radius: 5px;
 }
-
-
 #form-body {
   margin: 0 auto;
   display: table;
@@ -203,25 +179,20 @@ a.side-link {
   letter-spacing: 1px;
   text-align: center;
 }
-
-
 textarea{
   font-size: 18px;
 }
-
 #article_title, 
 #article_bg_image, 
 #article_proj_image,
 #article_git_link{
   font-size: 18px;
 }
-
 #slider1{
     width: 300px;
     height: 40px;
     align-content: center;
 }
-
 .creation-new-header{
   margin: 0 auto;
   display: table;
@@ -231,64 +202,50 @@ textarea{
   text-align: center;
   font-size: 100px;
 }
-
 #slider-dv{
   /*text-align: center;*/
   padding-left: 25%
 }
-
 #search {
-	width: 134px;
+    width: 134px;
 }
-
 .user-cell {
-	font-family: Raleway;
-	font-size: 22px;
-	border: 1px black solid;
-	padding: 3px;
-	text-align: center;
+    font-family: Raleway;
+    font-size: 22px;
+    border: 1px black solid;
+    padding: 3px;
+    text-align: center;
 }
-
 .custom-table {
-	border: 3px black solid;
-	position: absolute;
-	top: 10%;
-	left: 25%;
+    border: 3px black solid;
+    position: absolute;
+    top: 10%;
+    left: 25%;
 }
-
 .show-title {
-	padding-left: 0px;
-	padding-right: 0px;
-	text-align: center;
-	margin-top: -10px;
-	height: 58px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    margin-top: -10px;
+    height: 58px;
 }
-
-
 .show-author {
-	display: inline-block;
-	width: 30%;
+    display: inline-block;
+    width: 30%;
 }
-
 .git_link {
-	display: inline-block;
-	width: 30%;
-
+    display: inline-block;
+    width: 30%;
 }
-
 .show-links {
-
-	text-align: center;
-	padding-right: 10%;
+    text-align: center;
+    padding-right: 10%;
 }
-
-
 .title-box-text {
-	margin-top: 10px;
-	color: white;
-
+    margin-top: 10px;
+    color: white;
 }
 
 hr {
-	margin: 0px;
+    margin: 0px;
 }
