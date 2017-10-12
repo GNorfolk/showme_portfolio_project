@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
       # if there is no current user (ie not logged on) then reidrect to home page
     elsif 
       if params[:search]
-        @articles = Article.search(params[:search])
+        @articles = isapproved?(Article.search(params[:search]))
         # if there is a user and they input search params then provide articles containing these using seach (def. in model)
       else
         @articles = current_user.articles
@@ -36,6 +36,8 @@ class ArticlesController < ApplicationController
     # gives the user id to be that of current user
     @article.author = current_user.name
     # gives author to be that of current user
+    @article.approved = false
+    # confirms article requires approval from admin
     if @article.save
       redirect_to @article
       # if article save is successful then redirect to that article
