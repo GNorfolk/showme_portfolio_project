@@ -175,7 +175,7 @@ a.side-link {
     border-radius: 5px;
 }
 
-#form-body {
+.form-body {
   margin: 0 auto;
   display: table;
   font-family: Raleway;
@@ -309,4 +309,8 @@ textarea {
 	border: 1px solid black;
 	padding: 3px 4px 0px 4px;
 	border-radius: 5px;
+}
+
+.signinup {
+  margin-top: 85px;
 }
