@@ -20,7 +20,11 @@
 
 <div class="show-project-description">
 	<% if action_name == "show" %>
-		<p class="show-description-text"><strong><%= @article.description %></strong></p>
+		<p class="show-description-text">
+			<strong>
+				<%= markdown @article.description %>
+			</strong>
+		</p>
 		<br>
 	<% end %>
 </div>
