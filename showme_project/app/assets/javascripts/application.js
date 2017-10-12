@@ -13,3 +13,14 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+
+
+	var $alert = $(".custom-alert")
+
+	$alert.fadeout(3000)
+
+
+});
