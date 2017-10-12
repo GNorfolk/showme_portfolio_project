@@ -70,6 +70,9 @@ class ArticlesController < ApplicationController
     # direct to index page
   end
 
+  def approve
+  end
+
   protected
   # these methods are not accessible outside the class
   def article_params

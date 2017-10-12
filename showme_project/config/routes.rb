@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  get 'articles/approve', to: 'articles#approve'
+
   root "static#home"
 
 end
