@@ -17,6 +17,16 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     # find article with id given in url
+    respond_to do | format |
+      format.html 
+      format.pdf do 
+        pdf = ArticlePdf.new(@article)
+        # pdf.text @article.title
+        # pdf.text @article.description
+        send_data pdf.render, type: "application/pdf",
+                              disposition: "inline"                 
+      end
+    end
   end
 
   def new
