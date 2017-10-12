@@ -1,11 +1,17 @@
 class ArticlesController < ApplicationController
+
+include ApplicationHelper 
+
+#runs method to update unapproved articles notification before changing page
+before_action :unapproved_number
+
   def index
     if !current_user
       redirect_to root_path
       # if there is no current user (ie not logged on) then reidrect to home page
     elsif 
       if params[:search]
-        @articles = Article.search(params[:search])
+        @articles = isapproved?(Article.search(params[:search]))
         # if there is a user and they input search params then provide articles containing these using seach (def. in model)
       else
         @articles = current_user.articles
@@ -46,6 +52,8 @@ class ArticlesController < ApplicationController
     # gives the user id to be that of current user
     @article.author = current_user.name
     # gives author to be that of current user
+    @article.approved = false
+    # confirms article requires approval from admin
     if @article.save
       redirect_to @article
       # if article save is successful then redirect to that article
@@ -79,6 +87,22 @@ class ArticlesController < ApplicationController
     redirect_to articles_url
     # direct to index page
   end
+
+
+  def approveindex
+  # lets the admin view unapproved articles and approve them
+   @articles = Article.all.where(approved: false)
+  end
+
+  def approveupdate
+  # updates the article with an approved value
+    @article = Article.find(params[:id])
+    @article.approved = true
+    @article.save
+
+    redirect_to @article
+  end
+
 
   protected
   # these methods are not accessible outside the class

@@ -1,0 +1,39 @@
+<h1 class="creation-new-header"> Approval Page </h1>
+
+<% @articles.each do |article| %>
+
+	<div class="article">
+
+	<!-- displays the projects title -->
+	  <p class="title-box"><%= article.title %></p>
+	<!-- displays the author of the project -->
+	  <p class="author-box">By: <%= article.author %></p>
+	  
+	  
+	<!-- If user is on show page dispay in if statement  -->
+	  <% if action_name == "show" %>
+	<!-- display the discription of the project -->
+	    <p>Description: <strong><%= article.description %></strong></p>
+	<!-- display the git link for the project -->
+	    <p>Git Link: <strong><%= article.git_link %></strong></p>
+	    <br>
+	  <% end %>
+
+
+	  <!-- link to Homepage/root if the user is on the 'show' page -->
+	  <%= link_to "Home Page", "/" if action_name == "show" %> 
+	  <!-- link to 'show page' using the View button unless the user is on the show page -->
+	  <%= link_to "View", article, :class => 'show-button' unless action_name == "show" %> 
+	  
+	  <!-- display the projects image -->
+	  <img class='bg-image' src="<%= article.bg_image %>">
+
+
+	  <!--  'can can', if user is admin. display buttons to edit and delete the project -->
+	  <% if can? :update, article %>
+	    <%= link_to "Edit Page", edit_article_path(article) if action_name == "show" %>
+	    <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
+	  <% end %>
+	</div>
+
+<% end %>
