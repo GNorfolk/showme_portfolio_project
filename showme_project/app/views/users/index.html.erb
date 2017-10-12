@@ -1,3 +1,4 @@
+<!-- Displays user index page if current user is an admin -->
 <% if user_signed_in? && current_user.admin %>
 
 	<table class="custom-table">
@@ -7,19 +8,20 @@
 		</thead>
 
 		<tbody>
+			<!-- defines each table row to take each user and display their name, and a link to delete
+			the account or promote to administrator -->
 			<% @users.each do |e| %>
 
 				<tr>
-
 					<th class="user-cell"> <%= e.name %> </th>
 					<th class="user-cell"> <%= link_to "Delete Account", "/users/#{e.id}", method: :delete, data: { confirm: "Are you sure you want to delete this account?"} %>  </th>
 				
-				<% if !e.admin %> 
-					<th class="user-cell"> <%= link_to 'Promote to Admin', "/users/#{e.id}", method: :put, data: { confirm: "Are you sure you want to promote this user to ADMIN?"} %> </th>
-				<% else %>
-					<th class="user-cell"></th>
-				<% end %>
-				<br>
+					<% if !e.admin %> 
+						<th class="user-cell"> <%= link_to 'Promote to Admin', "/users/#{e.id}", method: :put, data: { confirm: "Are you sure you want to promote this user to ADMIN?"} %> </th>
+					<% else %>
+						<th class="user-cell"></th>
+					<% end %>
+					<br>
 				</tr>
 
 			<% end %>
@@ -27,6 +29,7 @@
 
 	</table>
 
+<!-- Otherwise displays an access denied message -->
 <% else %>
 	<p class="custom-alert"> Only Admins Can Access the Users Page! </p>
 <% end %>

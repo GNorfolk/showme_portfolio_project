@@ -7,6 +7,8 @@
 <!-- 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
 
+    <script src="https://use.fontawesome.com/dab4bca938.js"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700,800" rel="stylesheet">
@@ -46,10 +48,16 @@
   		<div class="nav-bar">
   		
 		  	<a href="/" class="side-link"><p>Full Portfolio</p></a>
+        <% if !user_signed_in? %>
+          <a href="/users/sign_in" class="side-link"><p>Personal Projects</p></a>
+          <a href="/users/sign_in" class="side-link"><p>New Project</p></a>
+          <a href="/users/sign_in" class="side-link"><p>View Profile</p></a>
+        <% end %>
+
+        <% if user_signed_in? %>
 		  	<a href="/articles" class="side-link"><p>Personal Projects</p></a>
 		  	<a href="/articles/new" class="side-link"><p>New Project</p></a>
 		  	<a href="/users/edit" class="side-link"><p>View Profile</p></a>
-        <% if user_signed_in? %>
           <% if current_user.admin %>
             <a href="/users" class="side-link"><p>User Index</p></a>
           <% end %>

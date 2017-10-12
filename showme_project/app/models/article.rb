@@ -14,9 +14,8 @@ class Article < ApplicationRecord
     # validates that the difficulty is between 1 and 5
 
     def self.search(search)
-        # this is part of the search function
+        # checks if the search params exported by the controller are contained by either the title, description, or author field
         where("title ILIKE ? OR description ILIKE ? OR author ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
-        # jack needs to comment this line
     end
 
 end

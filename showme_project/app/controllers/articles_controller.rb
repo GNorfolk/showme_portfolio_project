@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
     elsif 
       if params[:search]
         @articles = Article.search(params[:search])
-        # if there is a user and they input search params then provide search results
+        # if there is a user and they input search params then provide articles containing these using seach (def. in model)
       else
         @articles = current_user.articles
         # otherwise just get the users' own article portfolio
