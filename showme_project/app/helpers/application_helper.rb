@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+	#Pulls the number of unapproved articles
 	def unapproved_number
 		$unapproved_number = Article.all.where(approved: false).length
 	end

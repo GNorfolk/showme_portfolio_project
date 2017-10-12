@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 
 include ApplicationHelper 
 
+#runs method to update unapproved articles notification before changing page
 before_action :unapproved_number
 
   def index
@@ -94,6 +95,7 @@ before_action :unapproved_number
   end
 
   def approveupdate
+  # updates the article with an approved value
     @article = Article.find(params[:id])
     @article.approved = true
     @article.save
