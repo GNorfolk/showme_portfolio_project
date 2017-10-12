@@ -60,7 +60,7 @@
         <!-- Only allows admins access to the users index page -->
         <% if user_signed_in? && current_user.admin %>
           <a href="/users" class="side-link"><p>User Index</p></a>
-          <a href="/articles/approve" class="side-link"><p>Unapproved Articles</p></a>
+          <a href="/articles/approve" class="side-link"><p>Unapproved Articles <span class="notification">3</span></p></a>
         <% end %>
       
       </div>
