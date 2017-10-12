@@ -1,11 +1,12 @@
 
 <% if @article.errors.any? %>
-
+<!-- Checks for any validation errors -->
   <h3><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h3>
-
+<!-- displays the number of validation errors on the page -->
   <ul>
     <% @article.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
+      <!-- Actual error message displayed to screen -->
     <% end %>
   </ul>
 
@@ -13,23 +14,23 @@
 
 <div id='form-body'>
   <%= form_for(@article) do |f| %>
-
+  <!-- form helper which allows whats inputted into the form be pushed into the database -->
     <%= f.label :title, "Title " %>
     <br>
     <%= f.text_field :title, size: 70 %>
-
+    <!-- Title label and title entry field -->
     <br> <br>
 
     <%= f.label :description, "Description " %> 
     <br>
     <%= f.text_area :description, size: "70x20" %>
-
+    <!-- Description label and Description entry field -->
     <br> <br>
 
     <%= f.label :bg_image, "Background Image " %>
     <br>
     <%= f.text_field :bg_image, size: 70 %>
-
+    <!-- Background img label and Background img entry field -->
     <br> <br>
 
     <%= f.label :proj_image, "Project Image " %>
