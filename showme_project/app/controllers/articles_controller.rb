@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
 include ApplicationHelper 
 
-after_action :unapproved_number
+before_action :unapproved_number
 
   def index
     if !current_user
@@ -87,9 +87,6 @@ after_action :unapproved_number
     @article = Article.find(params[:id])
     @article.approved = true
     @article.save
-
-    #calls method to check how many articles are still unapproved and passes it out as a var
-    unapproved_number
 
     redirect_to @article
   end
