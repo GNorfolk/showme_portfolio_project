@@ -70,7 +70,11 @@ class ArticlesController < ApplicationController
     # direct to index page
   end
 
+
   def approve
+  # lets the admin view unapproved articles and approve them
+   @articles = Article.all.where("approved" == false)
+
   end
 
   protected

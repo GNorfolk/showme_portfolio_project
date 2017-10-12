@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 
   delete 'users/:id', to: 'users#destroy'
 
+  get 'articles/approve', to: 'articles#approve'
+  
   resources :articles
 
-  get 'articles/approve', to: 'articles#approve'
 
   root "static#home"
 
