@@ -73,7 +73,7 @@ class ArticlesController < ApplicationController
 
   def approve
   # lets the admin view unapproved articles and approve them
-   @articles = Article.all.where("approved" == false)
+   @articles = Article.all.where(approved: false)
 
   end
 
