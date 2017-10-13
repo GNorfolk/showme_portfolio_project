@@ -40,9 +40,9 @@ var $new = $(".side-link")
 // })
 
 
-$article.mouseover(function (){
- var $bg = 	$article.find(".bg-image");
- $bg.animate({height: "+=10px"});
+$article.on('click', function (){
+ var $this = 	$(this).find(".bg-image");
+ $this.animate({"background-size": "+=100px"});
 
 })
 
