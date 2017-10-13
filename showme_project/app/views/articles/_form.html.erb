@@ -27,17 +27,25 @@
     <!-- Description label and Description entry field -->
     <br> <br>
 
-    <%= f.label :bg_image, "Background Image " %>
+    <%= f.label :background_img, "Background Image" %>
     <br>
-    <%= f.text_field :bg_image, size: 70 %>
-    <!-- Background img label and Background img entry field -->
-    <br> <br>
+    <%= f.file_field :background_img %> 
+    <br><br>
 
-    <%= f.label :proj_image, "Project Image " %>
+    <%= f.label :carousel_img_one, "Image One" %>
     <br>
-    <%= f.text_field :proj_image, size: 70 %>
-    <!-- Project img label and Project img entry field -->
-    <br> <br>
+    <%= f.file_field :carousel_img_one %>
+    <br><br>
+
+    <%= f.label :carousel_img_two, "Image Two" %>
+    <br>
+    <%= f.file_field :carousel_img_two %>
+    <br><br>
+
+    <%= f.label :carousel_img_three, "Image Three" %>
+    <br>
+    <%= f.file_field :carousel_img_three %>
+    <br><br>
 
     <%= f.label :git_link, "GitHub URL " %>
     <br>
@@ -53,8 +61,9 @@
     <!-- Difficulty slider which allows the user to chose between a difficulty of 1 and 5 -->
     <br>
 
-    <%= f.label :additional_image %>
-    <%= f.file_field :additional_image %>
+
+
+    
 
     <%= f.submit %>
     <!-- Submit button which pushes the information in the form to the database. -->
