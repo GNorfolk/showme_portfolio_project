@@ -18,10 +18,10 @@ class Article < ApplicationRecord
         where("title ILIKE ? OR description ILIKE ? OR author ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
     end
 
-  has_attached_file :additional_image, styles: {
+  has_attached_file :background_img :carousel_img_one :carousel_img_two :carousel_img_three, styles: {
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
   }
-    validates_attachment_content_type :additional_image, :content_type => /\Aimage\/.*\Z/
+    validates_attachment_content_type :background_img :carousel_img_one :carousel_img_two :carousel_img_three, :content_type => /\Aimage\/.*\Z/
 end
