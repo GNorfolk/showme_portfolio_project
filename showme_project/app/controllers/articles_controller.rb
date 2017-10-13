@@ -108,7 +108,7 @@ before_action :unapproved_number
   # these methods are not accessible outside the class
   def article_params
     # these are article params used above
-    params.require(:article).permit(:title, :description, :bg_image, :proj_image, :git_link, :difficulty, :user_id)
+    params.require(:article).permit(:title, :description, :bg_image, :proj_image, :git_link, :difficulty, :user_id, :additional_image)
     # this pushes the attributes to the article params
   end
 

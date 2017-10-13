@@ -29,6 +29,8 @@
 	<% end %>
 </div>
 
+<%= image_tag @article.additional_image %>
+
 <div class="show-buttons">
   <p> <%= link_to "View PDF", article_path(@article, format: "pdf") %> </p>
 	<%= link_to "Home Page", "/" if @action_name == "show" %> 
