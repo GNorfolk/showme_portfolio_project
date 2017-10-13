@@ -16,7 +16,7 @@
 	  <p class="title-box"><%= article.title %></p>
 	</div>
 
- 	<div style="background-image: url('<%= article.bg_image %>');height: 100%; width: 100%;">
+ 	<div style="background-image: url('<%= image_tag "http://showmeportfolio.s3.amazonaws.com" + article.background_img.path %>');height: 100%; width: 100%;">
  	<div class="row author-posi">
 
  	<!-- displays the author of the project -->
@@ -41,7 +41,13 @@
 	  <% end %>
 
 
-	   <% if can? :update, article %>
+
+	  
+
+
+	  <!--  'can can', if user is admin. display buttons to edit and delete the project -->
+	  <% if can? :update, article %>
+
 	    <%= link_to "Edit Page", edit_article_path(article) if action_name == "show" %>
 	    <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
 	  <% end %>

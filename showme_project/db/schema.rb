@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013110039) do
+ActiveRecord::Schema.define(version: 20171013145318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 20171013110039) do
   create_table "articles", force: :cascade do |t|
     t.text "title"
     t.text "description"
-    t.string "bg_image"
-    t.string "proj_image"
     t.string "git_link"
     t.integer "difficulty"
     t.integer "user_id"
@@ -31,6 +29,22 @@ ActiveRecord::Schema.define(version: 20171013110039) do
     t.string "additional_image_content_type"
     t.integer "additional_image_file_size"
     t.datetime "additional_image_updated_at"
+    t.string "background_img_file_name"
+    t.string "background_img_content_type"
+    t.integer "background_img_file_size"
+    t.datetime "background_img_updated_at"
+    t.string "carousel_img_one_file_name"
+    t.string "carousel_img_one_content_type"
+    t.integer "carousel_img_one_file_size"
+    t.datetime "carousel_img_one_updated_at"
+    t.string "carousel_img_two_file_name"
+    t.string "carousel_img_two_content_type"
+    t.integer "carousel_img_two_file_size"
+    t.datetime "carousel_img_two_updated_at"
+    t.string "carousel_img_three_file_name"
+    t.string "carousel_img_three_content_type"
+    t.integer "carousel_img_three_file_size"
+    t.datetime "carousel_img_three_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

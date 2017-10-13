@@ -7,7 +7,7 @@
     <p class="title-box"><%= article.title %></p>
   </div>
 
-    <div style="background-image: url('<%= article.bg_image %>');height: 100%; width: 100%;">
+    <div style="background-image: url('<%= image_tag "http://showmeportfolio.s3.amazonaws.com" + article.background_img.path %>');height: 100%; width: 100%;">
 
 
     <!-- displays the author of the project -->
@@ -40,7 +40,11 @@
   <% end %>
 
 
+
 </div>
+
+
+
 
 
 
