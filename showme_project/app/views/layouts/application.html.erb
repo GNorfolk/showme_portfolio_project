@@ -29,22 +29,10 @@
     <div class="row">
       
       <div class="col-2 side-bar">
-          <% if user_signed_in? %>
-            <p><%= current_user.name %></p>
-            <div class="user-portrait"></div>
-            <p>Logged in as <br><%= current_user.email %> <br>
+       
 
-              <!-- Buttons that allow the user to edit their details or logout -->
-              <%= link_to "Edit Profile", edit_user_registration_path, :class => "side-link" %>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "side-link" %>
-              
-              <!-- Displays whether user is a member or an admin -->
-              <% if current_user.admin %>
-                <span style="color:red">ADMIN</span>
-              <% else %>
-                  MEMBER
-              <% end %>
-            </p>
+
+
 
         <% if user_signed_in? %>
   			  <p class="side-bar-title"><%= current_user.name %></p>
@@ -59,6 +47,10 @@
             <% end %>
           </p>
         <% else %>
+
+
+
+
           <p class="side-bar-title"> NOT LOGGED IN </p>
         <% end %>
     
@@ -67,7 +59,41 @@
 
 
 
+        <div class="nav-bar">
+      
+        <a href="/" class="side-link"><p>Full Portfolio</p></a>
+        <a href="/articles" class="side-link"><p>Personal Projects</p></a>
+        <a href="/articles/new" class="side-link"><p>New Project</p></a>
+        <a href="/users/edit" class="side-link"><p>View Profile</p></a>
+        <!-- Only allows admins access to the users index page -->
+        <% if user_signed_in? && current_user.admin %>
+          <a href="/users" class="side-link"><p>User Index</p></a>
+          <a href="/articles/approve" class="side-link"><p>Unapproved Articles <span class="notification"><%= $unapproved_number %></span></p></a>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "side-link" %>
+        <% end %>
+        <% if !user_signed_in? %>
+          <p><%= link_to "Sign up", new_user_registration_path, :class => "side-link" %></p>
+          <p><%= link_to "Login", new_user_session_path, :class => "side-link" %></p>
+        <% end %>
+        
 
+        <!-- Section of the sidebar that allows articles to be searched through -->
+        <div class="search-bar">
+          
+          <!-- form that exports text as :search into params, which is dealt with in the controller/model -->
+          <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
+            <%= submit_tag "Search" %>
+          <% end %>
+            
+        </div> 
+        
+        <!-- Sparta logo at the bottom of the sidebar -->
+        <img src="https://www.spartaglobal.com/img/sparta-global-logo-white.svg" class="sparta-logo"> 
+
+      </div>
 
 
 
@@ -116,41 +142,7 @@
 
 
       <!-- Section of the sidebar containing links to other sections of the site -->
-      <div class="nav-bar">
-  		
-		  	<a href="/" class="side-link"><p>Full Portfolio</p></a>
-		  	<a href="/articles" class="side-link"><p>Personal Projects</p></a>
-		  	<a href="/articles/new" class="side-link"><p>New Project</p></a>
-		  	<a href="/users/edit" class="side-link"><p>View Profile</p></a>
-        <!-- Only allows admins access to the users index page -->
-        <% if user_signed_in? && current_user.admin %>
-          <a href="/users" class="side-link"><p>User Index</p></a>
-          <a href="/articles/approve" class="side-link"><p>Unapproved Articles <span class="notification"><%= $unapproved_number %></span></p></a>
-        <% end %>
-        <% if user_signed_in? %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "side-link" %>
-        <% end %>
-        <% if !user_signed_in? %>
-          <p><%= link_to "Sign up", new_user_registration_path, :class => "side-link" %></p>
-          <p><%= link_to "Login", new_user_session_path, :class => "side-link" %></p>
-        <% end %>
-        <% end %>
-
-        <!-- Section of the sidebar that allows articles to be searched through -->
-        <div class="search-bar">
-          
-          <!-- form that exports text as :search into params, which is dealt with in the controller/model -->
-          <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
-            <%= submit_tag "Search" %>
-          <% end %>
-            
-        </div> 
-        
-        <!-- Sparta logo at the bottom of the sidebar -->
-        <img src="https://www.spartaglobal.com/img/sparta-global-logo-white.svg" class="sparta-logo"> 
-
-      </div>
+      
       <div class="col-10 bg_code">
         
 

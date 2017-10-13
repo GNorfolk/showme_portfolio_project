@@ -16,11 +16,17 @@
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
 
 
+.container-fluid {
+  margin-right: 30px !important;
+}
 
+body {
+  margin-right: 30px;
+}
 .side-bar {
   background-color: rgba(1,24,27,.95);
   text-align: center;
-
+  padding-right: 0px !important;
   color: lightgray;
   font-size: 22px;
   background-attachment: fixed;
@@ -117,7 +123,9 @@ a.side-link {
 
 .sparta-logo {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 42px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .show-button {
@@ -219,6 +227,7 @@ a.side-link {
     width: max-content;
     padding: 5px 25px;
     border-radius: 5px;
+    display: none;
 
 
     position: absolute;
