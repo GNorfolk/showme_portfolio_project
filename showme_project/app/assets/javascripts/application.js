@@ -11,16 +11,19 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
+document.addEventListener("DOMContentLoaded", function(event) { 
 
-$(document).ready(function(){
+console.log("PLEASE");
 
+var $article = $(".article");
 
-	var $alert = $(".custom-alert")
+console.log($article)
 
-	$alert.fadeout(3000)
-
+$article.fadeOut(7000);
 
 });

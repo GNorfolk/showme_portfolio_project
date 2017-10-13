@@ -1,6 +1,5 @@
 
 
-
 		<div class="col-12 title-wrapper">
 			<div class="col-12 show-title">
 		<h1 class="title-box-text"><%= @article.title %></h1>
@@ -105,6 +104,47 @@
 	</div>
 	</div>
 
+	<div class="show-links">
+		<p class="show-author"><strong>Created by:</strong> <%= @article.author %></p>
+		<p class="show-author"><strong>Project difficulty:</strong> <%= @article.difficulty %></p>
+		<p class="show-author"><strong> <a href="<%= @article.git_link %>" class="button">Go To GitHub<i class="fa fa-github" aria-hidden="true"></i></a></strong></p>  
+	</div>  
+
+</div>
+
+<div class="show-project-description">
+	<% if action_name == "show" %>
+		<p class="show-description-text">
+			<strong>
+				<%= markdown @article.description %>
+			</strong>
+		</p>
+		<br>
+
+	<% end %>
+</div>
+
+
+
+<div class="show-buttons">
+  <p> <%= link_to "View PDF", article_path(@article, format: "pdf") %> </p>
+	<%= link_to "Home Page", "/" if @action_name == "show" %> 
+	<%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
+	<% if can? :update, @article %>
+		<%= link_to "Edit Page", edit_article_path(@article) if action_name == "show" %>
+		<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
+    <% if @article.approved == false %>
+      <%= link_to "Approve", "/articles/approve/#{@article.id}", method: :put, data: { confirm: "Are you sure you wish to approve this article?"} if action_name == "show" %>
+    <% end %>
+	<% end %>
+</div>
+
+  <div class="show-buttons">
+  
+  <%= link_to "Home Page", "/" if @action_name == "show" %> 
+  <%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
+
+  </div>
 
 <div>
 
