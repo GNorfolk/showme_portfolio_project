@@ -26,10 +26,11 @@
 			</strong>
 		</p>
 		<br>
+    <%= image_tag "http://showmeportfolio.s3.amazonaws.com"+ @article.additional_image.path %>
 	<% end %>
 </div>
 
-<%= image_tag @article.additional_image %>
+
 
 <div class="show-buttons">
   <p> <%= link_to "View PDF", article_path(@article, format: "pdf") %> </p>
