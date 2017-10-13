@@ -1,2 +1,11 @@
 <h1>Users#show -- one day this may be a profile page!</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<h1> Account Details for <%= @user.name %> </h1>
+
+Name: <%= @user.name %>
+Email: <%= @user.email %>
+
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>
