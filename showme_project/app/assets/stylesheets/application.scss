@@ -71,8 +71,16 @@ body {
     border-radius: 25px;
 }
 
+.large {
+	height: 300px;
+	width: 300px;
+	border-radius: 250px;
+	background-size: 300px 300px;
+	border: 2px black solid;
+}
+
 .user-bar {
-    height: 30vh;
+    height: 32vh;
     width: 100%;
 }
 
@@ -320,4 +328,8 @@ textarea {
 
 .signinup {
   margin-top: 85px;
+}
+
+.cancel-button {
+	margin-bottom: 75px;
 }
