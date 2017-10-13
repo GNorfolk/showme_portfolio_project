@@ -40,10 +40,16 @@ var $new = $(".side-link")
 // })
 
 
-$article.on('click', function (){
+$article.mouseover(function (){
  var $this = 	$(this).find(".bg-image");
- $this.animate({"background-size": "+=100px"});
+ $this.stop().animate({"background-size": "+=50px"}, 1500);
+ console.log($this)
+});
 
-})
+$article.mouseout(function (){
+ var $this = 	$(this).find(".bg-image");
+ $this.stop().animate({"background-size": "-=50px"}, 1500);
+ console.log($this)
+});
 
 });
