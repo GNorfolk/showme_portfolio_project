@@ -26,12 +26,25 @@ console.log($article)
 
 var $new = $(".side-link")
 
-$new.mouseover(function (){
-	$new.animate({height: "+=10px"});
-});
+// $new.mouseover(function (){
+// 	$new.animate({height: "+=10px"});
+// });
 
-$new.mouseout(function (){
-	$new.animate({height: "-=10px"})
+// $new.mouseout(function (){
+// 	$new.animate({height: "-=10px"})
+// })
+
+// $new.mouseover(function (){
+// 	var $this = $(".side-link")
+// 	$this.css("background-color", "yellow");
+// })
+
+
+$article.mouseover(function (){
+ var $bg = 	$article.find(".bg-image");
+ $bg.animate({height: "+=10px"});
+
 })
+
 
 });
