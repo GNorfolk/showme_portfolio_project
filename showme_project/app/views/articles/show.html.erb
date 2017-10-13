@@ -1,58 +1,112 @@
-<div class="container-fluid">
 
-	<div class="row show-title">
-		<div class="title-box1">
+
+		<div class="col-12 title-wrapper">
+			<div class="col-12 show-title">
 		<h1 class="title-box-text"><%= @article.title %></h1>
+			</div>
 		</div>  
+
+
+
+
+
+
+	<div class="container">
+	<div class="carousel">
+		<input type="radio" id="carousel-1" name="carousel[]" checked>
+		<input type="radio" id="carousel-2" name="carousel[]">
+     <input type="radio" id="carousel-3" name="carousel[]">
+		<input type="radio" id="carousel-4" name="carousel[]">
+		<input type="radio" id="carousel-5" name="carousel[]">
+		<ul class="carousel__items">
+			<li class="carousel__item"><img src="<%= image_tag "http://showmeportfolio.s3.amazonaws.com"+ @article.carousel_img_one.path %> "></li>
+			<li class="carousel__item"><img src="//lh4.googleusercontent.com/-ntVHbbWX5eo/U8-EmV8P4cI/AAAAAAAABc4/ICYBGkcztTc/w1358-h905-no/carousel-2.jpg" alt=""></li>
+			<li class="carousel__item"><img src="//lh5.googleusercontent.com/-batEXUZE_e4/U8-EmLF9-hI/AAAAAAAABc0/J3tJVUa6Buk/w1358-h905-no/carousel-3.jpg" alt=""></li>
+			<li class="carousel__item"><img src="//lh5.googleusercontent.com/-gywqIeMvel0/U8-EolKdtkI/AAAAAAAABdM/G0-NHuvvJUU/w1358-h905-no/carousel-4.jpg" alt=""></li>
+			<li class="carousel__item"><img src="//lh5.googleusercontent.com/--2iANjL3ikc/U8-EoGJ18mI/AAAAAAAABdI/fBe-q3Gos6Y/w1358-h905-no/carousel-5.jpg" alt=""></li>
+		</ul>
+     <div class="carousel__prev">
+     	<label for="carousel-1"></label>
+     	<label for="carousel-2"></label>
+     	<label for="carousel-3"></label>
+     	<label for="carousel-4"></label>
+     	<label for="carousel-5"></label>
+     </div>
+     <div class="carousel__next">
+       <label for="carousel-1"></label>
+       <label for="carousel-2"></label>
+       <label for="carousel-3"></label>
+       <label for="carousel-4"></label>
+       <label for="carousel-5"></label>
+     </div>
+     <div class="carousel__nav">
+       <label for="carousel-1"></label>
+       <label for="carousel-2"></label>
+       <label for="carousel-3"></label>
+       <label for="carousel-4"></label>
+       <label for="carousel-5"></label>
+     </div>
+   </div>
+ </div>
+
+
+
+	
+
+
+	<div class="col-10 offset-md-1">
+		<% if action_name == "show" %>
+			<p class="show-description-text">
+				<strong>
+					<%= markdown @article.description %>
+				</strong>
+			</p>
+			<br>
+		<% end %>
 	</div>
 
-	<div class="show-image-wrapper">
-		<img class='show-image' src="<%= @article.bg_image %>">
+
+
+
+
+		<div class="col-4 links"> <p class="show-author"><strong>Created by:</strong> <%= @article.author %></p></div>
+		<div class="col-4 links"> <p class="show-author"><strong>Project difficulty:</strong> <%= @article.difficulty %></p></div>
+		<div class="col-4 links"> <p class="show-author"><strong> <a href="<%= @article.git_link %>" class="button">Go To GitHub<i class="fa fa-github" aria-hidden="true"></i></a></strong></p></div>  
+
+
+	<div class="col-12">
+
+		<div class="col-4 offset-md-1 inline-block">
+			<p> <%= link_to "View PDF", article_path(@article, format: "pdf") %> </p>
+		</div>
+
+	<div class="col-3 offset-md-3 pull-right">
+
+	<div class="show-buttons">
+
+		<%= link_to "Home Page", "/" if @action_name == "show" %> 
+		<%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
+		<% if can? :update, @article %>
+			<%= link_to "Edit Page", edit_article_path(@article) if action_name == "show" %>
+			<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
+	    <% if @article.approved == false %>
+	      <%= link_to "Approve", "/articles/approve/#{@article.id}", method: :put, data: { confirm: "Are you sure you wish to approve this article?"} if action_name == "show" %>
+	    <% end %>
+		<% end %>
+
+
+	</div>
 	</div>
 
-	<div class="show-links">
-		<p class="show-author"><strong>Created by:</strong> <%= @article.author %></p>
-		<p class="show-author"><strong>Project difficulty:</strong> <%= @article.difficulty %></p>
-		<p class="show-author"><strong> <a href="<%= @article.git_link %>" class="button">Go To GitHub<i class="fa fa-github" aria-hidden="true"></i></a></strong></p>  
-	</div>  
+	
 
 </div>
 
-<div class="show-project-description">
-	<% if action_name == "show" %>
-		<p class="show-description-text">
-			<strong>
-				<%= markdown @article.description %>
-			</strong>
-		</p>
-		<br>
-
-	<% end %>
-</div>
 
 
 
-<div class="show-buttons">
-  <p> <%= link_to "View PDF", article_path(@article, format: "pdf") %> </p>
-	<%= link_to "Home Page", "/" if @action_name == "show" %> 
-	<%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
-	<% if can? :update, @article %>
-		<%= link_to "Edit Page", edit_article_path(@article) if action_name == "show" %>
-		<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
-    <% if @article.approved == false %>
-      <%= link_to "Approve", "/articles/approve/#{@article.id}", method: :put, data: { confirm: "Are you sure you wish to approve this article?"} if action_name == "show" %>
-    <% end %>
-	<% end %>
-</div>
 
-  <div class="show-buttons">
-  
-  <%= link_to "Home Page", "/" if @action_name == "show" %> 
-  <%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
 
-  </div>
-
-<div>
 	<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>

@@ -18,10 +18,40 @@ class Article < ApplicationRecord
         where("title ILIKE ? OR description ILIKE ? OR author ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
     end
 
-  has_attached_file :additional_image, styles: {
+  has_attached_file :background_img, styles: {
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
   }
-    validates_attachment_content_type :additional_image, :content_type => /\Aimage\/.*\Z/
+    validates_attachment_content_type :background_img, :content_type => /\Aimage\/.*\Z/
+
+
+
+  has_attached_file :carousel_img_one, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+    validates_attachment_content_type :carousel_img_one, :content_type => /\Aimage\/.*\Z/
+
+
+
+
+  has_attached_file :carousel_img_two, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+    validates_attachment_content_type :carousel_img_two, :content_type => /\Aimage\/.*\Z/
+
+
+
+    has_attached_file :carousel_img_three, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+    validates_attachment_content_type :carousel_img_three, :content_type => /\Aimage\/.*\Z/
+
+
 end
