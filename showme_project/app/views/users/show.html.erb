@@ -9,3 +9,35 @@ Email: <%= @user.email %>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
 </div>
+
+<%= form_for(@user, as: @user.name, url: registration_path(@user), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, size: 40 %>
+  </div>
+ <br>
+  <div class="field">
+    <%= f.label :password %> <br><i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off", size: 40 %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", size: 40 %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :current_password %><br> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off", size: 40 %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>

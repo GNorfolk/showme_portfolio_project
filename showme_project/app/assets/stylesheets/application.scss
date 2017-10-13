@@ -43,6 +43,13 @@ body {
   box-shadow: 5px 0px 6px black;
 }
 
+.side-bar-title {
+	padding: 15px;
+	font-size: 26px;
+	font-weight: 100;
+	color: white;
+}
+
 .article-bar {
     position: fixed;
     top: 0;
@@ -65,16 +72,16 @@ body {
 }
 
 .user-bar {
-    height: 36vh;
+    height: 30vh;
     width: 100%;
 }
 
 .nav-bar {
-    height: 30vh;
+    height: max-content;
     width: 100%;
     background-color: rgba(1, 24, 27, 1);
     font-size: 22px;
-    padding: 5px 0;
+    padding: 25px 0 15px 0;
 }
 
 .search-bar {

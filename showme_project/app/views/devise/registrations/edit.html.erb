@@ -1,4 +1,4 @@
-<h1 class= 'creation-new-header signinup'>Edit <%= resource_name.to_s.humanize %></h1>
+<h1 class= 'creation-new-header signinup'>Profile Page</h1>
 <br>
 <br>
 <div class = form-body>
@@ -13,6 +13,11 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
  <br>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, size: 40 %>
+  </div>
+  <br>
   <div class="field">
     <%= f.label :password %> <br><i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off", size: 40 %>
