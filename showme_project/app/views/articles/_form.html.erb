@@ -12,6 +12,8 @@
 
 <% end %>
 
+<div class="col-12 text-center">
+
 <div class='form-body'>
   <%= form_for(@article) do |f| %>
   <!-- form helper which allows whats inputted into the form be pushed into the database -->
@@ -45,6 +47,8 @@
     <!-- GitHub Url label and GitHub Url entry field -->
     <br> <br>
 
+
+
     <%= f.label :difficulty, "Difficulty (1-5) " %>
     <p id='slider-output'><p>
     <div id='slider-dv'>
@@ -61,6 +65,7 @@
     <br>
 
   <% end %>
+</div>
 </div>
 
 <script>

@@ -46,5 +46,4 @@ $article.mouseover(function (){
 
 })
 
-
 });
