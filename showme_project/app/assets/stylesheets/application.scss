@@ -31,7 +31,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  width: 15.5%;
+  width: 225px;
   background-color: rgba(1,24,27,.95);
   text-align: center;
   display:inline-block;
@@ -41,6 +41,13 @@ body {
   font-family: Khula;
   font-weight: 100;
   box-shadow: 5px 0px 6px black;
+}
+
+.side-bar-title {
+	padding: 15px;
+	font-size: 26px;
+	font-weight: 100;
+	color: white;
 }
 
 .article-bar {
@@ -58,23 +65,31 @@ body {
     background-image: url("https://www.thelocal.no/userdata/images/article/4e973e5ad789bea0884b80ede326ac3cc66cee2bd1696ab5a603d4057f7f4e9b.jpg");
     width: 50px;
     height: 50px;
-    margin: 0 auto;
+    margin: 0 auto 25px auto;
     background-size: 50px 50px;
     border: 1px white solid;
     border-radius: 25px;
 }
 
+.large {
+	height: 300px;
+	width: 300px;
+	border-radius: 250px;
+	background-size: 300px 300px;
+	border: 2px black solid;
+}
+
 .user-bar {
-    height: 36vh;
+    height: 32vh;
     width: 100%;
 }
 
 .nav-bar {
-    height: 30vh;
+    height: max-content;
     width: 100%;
     background-color: rgba(1, 24, 27, 1);
     font-size: 22px;
-    padding: 5px 0;
+    padding: 25px 0 15px 0;
 }
 
 .search-bar {
@@ -285,8 +300,6 @@ textarea {
 
 }
 
-
-
 .show-buttons {
   float: right;
   margin-right: 15%;
@@ -312,5 +325,9 @@ textarea {
 }
 
 .signinup {
-  margin-top: 85px;
+  margin-top: 20px;
+}
+
+.cancel-button {
+	margin-bottom: 75px;
 }
