@@ -24,6 +24,14 @@ var $article = $(".article");
 
 console.log($article)
 
-$article.fadeOut(7000);
+var $new = $(".side-link")
+
+$new.mouseover(function (){
+	$new.animate({height: "+=10px"});
+});
+
+$new.mouseout(function (){
+	$new.animate({height: "-=10px"})
+})
 
 });
