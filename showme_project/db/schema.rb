@@ -25,10 +25,6 @@ ActiveRecord::Schema.define(version: 20171013145318) do
     t.datetime "updated_at", null: false
     t.text "author"
     t.boolean "approved"
-    t.string "additional_image_file_name"
-    t.string "additional_image_content_type"
-    t.integer "additional_image_file_size"
-    t.datetime "additional_image_updated_at"
     t.string "background_img_file_name"
     t.string "background_img_content_type"
     t.integer "background_img_file_size"

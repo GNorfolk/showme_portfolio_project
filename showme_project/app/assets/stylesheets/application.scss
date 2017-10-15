@@ -33,7 +33,8 @@ body {
   font-family: Khula;
   font-weight: 100;
   box-shadow: 5px 0px 6px black;
-  min-height: 800px;
+  height: 100vh;
+  background-attachment: fixed;
 }
 
 
@@ -111,12 +112,13 @@ a.side-link {
 
 .article {
    
-    height: 250px;
+    height: 295px;
     width: 100%;
 
 
     margin: 9px;
     margin-bottom: 50px;
+    overflow: hidden;
 
 
 }
@@ -193,13 +195,19 @@ a.side-link {
     bottom: -4px;
 }
 
-
-
+.bg-image {
+    height: 100%;
+    width: 100%;
+    background-size: 500px auto;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 0;
+    left: 0;
+}
 
 .img-responsive {
     width: 100px;
     height: 100px;
-
 }
 
 
