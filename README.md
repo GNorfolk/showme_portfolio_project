@@ -26,12 +26,15 @@ Here are our Definitions of Done, Awaiting Approval, and In Progress.
 This was the workspace we used for our project, here you can see our board in the early phase of our sprint.
 
 
-### Installation ###
+### Installation 
 
-###To install this project you must:### 
+##### To install this project you must: 
 
-1) In Github clone or download the project.
+1 ) In Github clone or download the project.
+
+2 ) In terminal ``` bundle ```
  
-2) In the terminal use ```rake db create``` and ```rake db migrate```.
+3 ) In the terminal use ```rake db create``` and ```rake db migrate```.
  
-3) Use the rails commands ```rails s``` to run the application locally on a rails server.
+4 ) 
+Use the rails commands ```rails s``` to run the application locally on a rails server.
