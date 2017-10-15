@@ -14,36 +14,49 @@
  *= require_self
  */
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
-body {
-  margin: 0 auto;
-  /*background-image: url("https://www.spartaglobal.com/img/bubbles.png");
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: 600px 400px;*/
-  background-color: rgb(220,220,220);
+
+.container-fluid {
+  margin-right: 30px !important;
 }
 
+body {
+  margin-right: 30px;
+}
 .side-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 15.5%;
   background-color: rgba(1,24,27,.95);
   text-align: center;
-  display:inline-block;
+  padding-right: 0px !important;
   color: lightgray;
   font-size: 22px;
   background-attachment: fixed;
   font-family: Khula;
   font-weight: 100;
   box-shadow: 5px 0px 6px black;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  margin: 10px auto;
+  border: 2px darkgray solid;
+
+}
+
+/*.article-bar {
+=======
+.side-bar-title {
+	padding: 15px;
+	font-size: 26px;
+	font-weight: 100;
+	color: white;
 }
 
 .article-bar {
+>>>>>>> development
     position: fixed;
     top: 0;
     left: 15.6%;
@@ -52,36 +65,47 @@ body {
     width: 90%;
     height: 100%;
     overflow: scroll;
-}
+}*/
 
 .user-portrait {
     background-image: url("https://www.thelocal.no/userdata/images/article/4e973e5ad789bea0884b80ede326ac3cc66cee2bd1696ab5a603d4057f7f4e9b.jpg");
     width: 50px;
     height: 50px;
-    margin: 0 auto;
+    margin: 0 auto 25px auto;
     background-size: 50px 50px;
     border: 1px white solid;
     border-radius: 25px;
 }
 
+.large {
+	height: 300px;
+	width: 300px;
+	border-radius: 250px;
+	background-size: 300px 300px;
+	border: 2px black solid;
+}
+
 .user-bar {
-    height: 36vh;
+    height: 32vh;
     width: 100%;
 }
 
+
 .nav-bar {
-    height: 30vh;
+    height: max-content;
     width: 100%;
     background-color: rgba(1, 24, 27, 1);
     font-size: 22px;
-    padding: 5px 0;
+    padding: 25px 0 15px 0;
 }
+
 
 .search-bar {
     height: 4vh;
     width: 220px;
-    background-color: rgb(0, 0, 70);
+/*    background-color: rgb(0, 0, 70);*/
     margin: 50px 0;
+    margin-left: 14px;
 }
 
 a:visited.side-link {
@@ -95,72 +119,118 @@ a.side-link {
 }
 
 .article {
-    display: inline-block;
-    height: 390px;
-    width: 390px;
-    box-shadow: 5px 5px 12px black;
-    border-radius: 10px;
+   
+    height: 295px;
+    width: 100%;
+
+
     margin: 9px;
-    vertical-align: top;
-    z-index: -10;
+    margin-bottom: 50px;
+    overflow: hidden;
+
+
 }
 
 .sparta-logo {
-    height: 100px;
-    width: 210px;
-    position: relative;
-    bottom: 0vh;
+    width: 100%;
+    margin-top: 42px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .show-button {
-    background: rgba(0, 20, 10, 0.8);
-    border: 5px solid black;
-    position: relative;
-    bottom: -220px;
-    right: -299px;
-    border-radius: 10px 0 10px 0;
-    padding: 0px 15px;
-    font-size: 26px;
-    color: white;
-    text-decoration: none;
+    border-radius: 10px 0px 0px 0px;
+    background-color: rgba(1, 24, 27, 0.95);
+    width: max-content;
+    padding: 0px 20px;
+
+    font-weight: 100;
+    font-size: 20px;
     font-family: Khula;
+    color: white;
+    float: right;
+    position: absolute;
+
+    right: 15px;
+    border: solid white 1px;
+    bottom: 12px;
 }
+
+
+
+.show-button1 {
+    border-radius: 10px 0px 0px 0px;
+    background-color: rgba(1, 24, 27, 0.95);
+    width: max-content;
+    padding: 0px 20px;
+
+    font-weight: 100;
+    font-size: 20px;
+    font-family: Khula;
+    color: white;
+    float: right;
+    position: absolute;
+
+    right: 29px;
+    border: solid white 1px;
+    bottom: 12px;
+}
+
+
 
 .title-box {
     background: linear-gradient(135deg, rgba(40,53,39,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(38,38,38,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);
-    position: relative;
-    top: 0px;
-    left: 0;
-    border-radius: 10px 10px 0 0;
-    font-family: Khula;
-    font-size: 28px;
-    padding: 0 15px;
-    height: 86px;
     color: white;
-    font-weight: 100;
+    margin-bottom: 0px;
+    padding:10px;
+    text-align: center;
+
+}
+
+.title-wrapper {
+  text-align: center;
 }
 
 .author-box {    
-        position: relative;
-    bottom: -274px;
-    left: 0px;
-    border-radius: 0 0 0 10px;
-    background-color: rgba(1,24,27,.95);
+    border-radius: 0px 10px 0px 0px;
+    background-color: rgba(1, 24, 27, 0.95);
     width: max-content;
     padding: 0 10px;
     font-family: Khula;
     color: white;
+    border: solid white 1px;
+    position: relative;
+    bottom: -4px;
 }
 
 .bg-image {
-      height: 100%;
+    height: 100%;
     width: 100%;
+    background-size: 500px auto;
+    background-repeat: no-repeat;
     position: relative;
-    top: -163px;
-    left: -0px;
-    z-index: -5;
-    border-radius: 10px;
+    top: 0;
+    left: 0;
 }
+
+.img-responsive {
+    width: 100px;
+    height: 100px;
+}
+
+
+/*.bg-image {
+
+
+ 
+    width: 100%;
+    /*position: relative;*/
+    /*top: -163px;*/
+    /*left: -0px;*/
+    /*z-index: -5;*/
+    /*border-radius: 10px;*/
+/*}*/
+
 
 .custom-alert {
     margin: 0 auto;
@@ -173,9 +243,19 @@ a.side-link {
     width: max-content;
     padding: 5px 25px;
     border-radius: 5px;
+    display: none;
+
+
+    position: absolute;
+    bottom: 0%;
+    left: 40%;
+
+
+
+/*    display: none;*/
 }
 
-#form-body {
+.form-body {
   margin: 0 auto;
   display: table;
   font-family: Raleway;
@@ -215,11 +295,12 @@ textarea {
 
 #slider-dv{
   /*text-align: center;*/
-  padding-left: 25%
+
 }
 
 #search {
-    width: 134px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .user-cell {
@@ -237,35 +318,20 @@ textarea {
     left: 25%;
 }
 
-.show-title {
-	padding-left: 0px;
-	padding-right: 0px;
-  text-align: center;
-	margin-top: -10px;
-	height: 58px;
-}
 
-.show-author {
-    display: inline-block;
-    width: 30%;
-}
+
 
 .git_link {
-   display: inline-block;
-   width: 30%;
+
+  
 }
 
 .show-links {
-
-	padding-right: 10%;
-	margin-top: 40px;
-  text-align: center;
-  padding-right: 10%;
 }
 
 .title-box-text {
 	margin-top: 10px;
-  margin-right: 100px;
+
 	font-family: Raleway;
 	font-weight: 100;
   color: #5d6168;
@@ -285,8 +351,6 @@ textarea {
 
 }
 
-
-
 .show-buttons {
   float: right;
   margin-right: 15%;
@@ -298,8 +362,342 @@ textarea {
 }
 
 .show-image {
-  text-align: center;
-  margin-left: 10%;
   max-height: 500px;
-  max-width: 750px;
+  max-width: 100%;
+}
+
+.notification {
+	background-color: red;
+	border: 1px solid black;
+	padding: 3px 4px 0px 4px;
+	border-radius: 5px;
+}
+
+.signinup {
+  margin-top: 85px;
+}
+
+.author-pos {
+  position: relative;
+  top: 222px;
+
+}
+
+
+.author-posi {
+  position: relative;
+  top: 222px;
+  left: 15px;
+
+}
+
+
+.show-image-pos{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+
+.links {
+  text-align: center;
+}
+
+
+.pull-right {
+  float: right;
+  margin-right: 90px;
+}
+
+
+
+.inline-block {
+  display: inline-block;
+}
+
+.approve-overflow {
+
+  overflow-y: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Carousel.sass
+ * @author: Dang Van Thanh
+ * @github: https://github.com/dangvanthanh/carousel.sass
+ * @description: A Simple Carousel Pure CSS Using Sass
+ * @version: 1.0.0
+ */
+%animation-default {
+  opacity: 1 !important;
+  z-index: 3;
+}
+
+@mixin carousel($items, $animation: 'default') {
+  .carousel {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    > input[type="radio"] {
+      position: absolute;
+      left: 0;
+      opacity: 0;
+      top: 0;
+
+      &:checked {
+        ~ .carousel__items .carousel__item,
+        ~ .carousel__prev > label,
+        ~ .carousel__next > label {
+          opacity: 0;
+        }
+      }
+
+      @for $i from 1 through $items {
+        &:nth-child(#{$i}) {
+          &:checked {
+            ~ .carousel__items .carousel__item {
+              @if $animation == 'default' {
+                &:nth-child(#{$i}) {
+                  opacity: 1;
+                }
+              }
+            }
+
+            ~ .carousel__prev {
+              > label {
+                @if $i == 1 {
+                  &:nth-child(#{$items}) {
+                    @extend %animation-default;
+                  }
+                } @else if $i == $items {
+                  &:nth-child(#{$items - 1}) {
+                    @extend %animation-default;
+                  }
+                } @else {
+                  &:nth-child(#{$i - 1}) {
+                    @extend %animation-default;
+                  }
+                }
+              }
+            }
+
+            ~ .carousel__next {
+              > label {
+                @if $i == $items {
+                  &:nth-child(1) {
+                    @extend %animation-default;
+                  }
+                } @else {
+                  &:nth-child(#{$i + 1}) {
+                    @extend %animation-default;
+                  }
+                }
+              }
+            }
+
+            ~ .carousel__nav {
+              > label {
+                &:nth-child(#{$i}) {
+                  background: #ccc;
+                  cursor: default;
+                  pointer-events: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__items {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      width: 100%;
+      height: 600px;
+      position: relative;
+    }
+
+    &__item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transition: opacity 2s;
+      -webkit-transition: opacity 2s;
+
+      img {
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+
+    &__prev,
+    &__next {
+      > label {
+        border: 1px solid #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+        opacity: 0;
+        z-index: 2;
+
+        &:hover,
+        &:focus {
+          opacity: .5 !important;
+        }
+
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          width: inherit;
+          height: inherit;
+        }
+
+        &:before {
+          background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%),
+                      linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+          width: 60%;
+          height: 60%;
+          top: 20%;
+        }
+      }
+    }
+
+    &__prev {
+      > label {
+        left: 2%;
+
+        &:before {
+          left: 35%;
+          top: 20%;
+          transform: rotate(135deg);
+          -webkit-transform: rotate(135deg);
+        }
+      }
+    }
+
+    &__next {
+      > label {
+        right: 2%;
+
+        &:before {
+          left: 10%;
+          transform: rotate(315deg);
+          -webkit-transform: rotate(315deg);
+        }
+      }
+    }
+
+    &__nav {
+      position: absolute;
+      bottom: 3%;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      z-index: 3;
+
+      > label {
+        border: 1px solid #fff;
+        display: inline-block;
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 0 .125%;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  background: #fcfcfc;
+  margin: 0;
+}
+
+.container {
+  width: 900px;
+  min-width: 900px;
+  margin: 50px auto;
+}
+
+@include carousel(5);
+
+
+.cancel-button {
+	margin-bottom: 75px;
+}
+
+.social-media-buttons {
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+  float: center;
+}
+
+#social-media-div {
+  width: 230px;
+  margin: 10px auto;
+  margin-top: 60px;
+}
+
+#facebook-button {
+  background-image: url('facebook.png');
+  background-size: contain;
+}
+
+#linkedin-button {
+  background-image: url('linkedin.png');
+  background-size: contain;
+}
+
+#twitter-button {
+  background-image: url('twitter.png');
+  background-size: contain;
+}
+
+.sad-box-div {
+  padding: 10px;
+  margin: 0 auto;
 }

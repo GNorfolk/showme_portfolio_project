@@ -1,11 +1,17 @@
 class ArticlesController < ApplicationController
+
+include ApplicationHelper 
+
+#runs method to update unapproved articles notification before changing page
+before_action :unapproved_number
+
   def index
     if !current_user
       redirect_to root_path
       # if there is no current user (ie not logged on) then reidrect to home page
     elsif 
       if params[:search]
-        @articles = Article.search(params[:search])
+        @articles = isapproved?(Article.search(params[:search]))
         # if there is a user and they input search params then provide articles containing these using seach (def. in model)
       else
         @articles = current_user.articles
@@ -17,6 +23,16 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     # find article with id given in url
+    respond_to do | format |
+      format.html 
+      format.pdf do 
+        pdf = ArticlePdf.new(@article)
+        # pdf.text @article.title
+        # pdf.text @article.description
+        send_data pdf.render, type: "application/pdf",
+                              disposition: "inline"                 
+      end
+    end
   end
 
   def new
@@ -36,6 +52,8 @@ class ArticlesController < ApplicationController
     # gives the user id to be that of current user
     @article.author = current_user.name
     # gives author to be that of current user
+    @article.approved = false
+    # confirms article requires approval from admin
     if @article.save
       redirect_to @article
       # if article save is successful then redirect to that article
@@ -70,11 +88,27 @@ class ArticlesController < ApplicationController
     # direct to index page
   end
 
+
+  def approveindex
+  # lets the admin view unapproved articles and approve them
+   @articles = Article.all.where(approved: false)
+  end
+
+  def approveupdate
+  # updates the article with an approved value
+    @article = Article.find(params[:id])
+    @article.approved = true
+    @article.save
+
+    redirect_to @article
+  end
+
+
   protected
   # these methods are not accessible outside the class
   def article_params
     # these are article params used above
-    params.require(:article).permit(:title, :description, :bg_image, :proj_image, :git_link, :difficulty, :user_id)
+    params.require(:article).permit(:title, :description, :background_img, :carousel_img_one, :carousel_img_two, :carousel_img_three, :git_link, :difficulty, :user_id, :additional_image)
     # this pushes the attributes to the article params
   end
 

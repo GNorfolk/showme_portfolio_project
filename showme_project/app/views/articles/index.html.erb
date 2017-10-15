@@ -3,6 +3,10 @@
   <%= render @articles %>
   <!-- ERB that renders the article partial to the page -->
 <% else %>
-  <p class="sad-box">There are no articles containing the term(s) <%= params[:search] %>!</p>
-  <!-- If the article does not exist they are presented with a a message saying so -->
+  <div class="sad-box-div">
+	  <p class="sad-box">There are no articles containing the term(s) <%= params[:search] %>!</p>
+	  <!-- If the article does not exist they are presented with a a message saying so -->
+  </div>
 <% end %>
+
+<% unapproved_number %>

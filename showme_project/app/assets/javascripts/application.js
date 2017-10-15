@@ -11,16 +11,26 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
+document.addEventListener("DOMContentLoaded", function(event) { 
 
-$(document).ready(function(){
+// Makes article image bigger and smaller when moused over	
+var $article = $(".article");
 
+$article.mouseover(function (){
+ var $this = 	$(this).find(".bg-image");
+ $this.stop().animate({"background-size": "+=50px"}, 1500);
+ console.log($this)
+});
 
-	var $alert = $(".custom-alert")
-
-	$alert.fadeout(3000)
-
+$article.mouseout(function (){
+ var $this = 	$(this).find(".bg-image");
+ $this.stop().animate({"background-size": "500px"}, 1500);
+ console.log($this)
+});
 
 });

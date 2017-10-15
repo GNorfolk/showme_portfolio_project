@@ -1,51 +1,110 @@
-<div class="container-fluid">
-  <div class="row show-title">
-    <div class="title-box1">
-      <h1 class="title-box-text"><%= @article.title %></h1>
-    </div>  
-  </div>
+
+
+		<div class="col-12 title-wrapper">
+			<div class="col-12 show-title">
+		<h1 class="title-box-text"><%= @article.title %></h1>
+			</div>
+		</div>  
 
 
 
-  <div class="show-image-wrapper">
-    <img class='show-image' src="<%= @article.bg_image %>">
-  </div>
 
-  <div class="show-links">
-    <p class="show-author"><strong>Created by:</strong> <%= @article.author %></p>
-    <p class="show-author"><strong>Project difficulty:</strong> <%= @article.difficulty %></p>
-    <p class="show-author"><strong> <a href="<%= @article.git_link %>" class="button">Go To GitHub<i class="fa fa-github" aria-hidden="true"></i></a></strong></p>  
-  </div>  
- 
+
+
+	<div class="container">
+	<div class="carousel">
+		<input type="radio" id="carousel-1" name="carousel[]" checked>
+		<input type="radio" id="carousel-2" name="carousel[]">
+     <input type="radio" id="carousel-3" name="carousel[]">
+		<input type="radio" id="carousel-4" name="carousel[]">
+		<ul class="carousel__items">
+			<li class="carousel__item"><%= image_tag "http://showmeportfolio.s3.amazonaws.com"+ @article.carousel_img_one.path %>></li>
+			<li class="carousel__item"><img <%= image_tag "http://showmeportfolio.s3.amazonaws.com"+ @article.carousel_img_two.path %> alt=""></li>
+			<li class="carousel__item"><img <%= image_tag "http://showmeportfolio.s3.amazonaws.com"+ @article.carousel_img_three.path %> alt=""></li>
+			<li class="carousel__item"><img <%= image_tag "http://showmeportfolio.s3.amazonaws.com"+ @article.background_img.path %> alt=""></li>
+		</ul>
+     <div class="carousel__prev">
+     	<label for="carousel-1"></label>
+     	<label for="carousel-2"></label>
+     	<label for="carousel-3"></label>
+     	<label for="carousel-4"></label>
+     </div>
+     <div class="carousel__next">
+       <label for="carousel-1"></label>
+       <label for="carousel-2"></label>
+       <label for="carousel-3"></label>
+       <label for="carousel-4"></label>
+     </div>
+     <div class="carousel__nav">
+       <label for="carousel-1"></label>
+       <label for="carousel-2"></label>
+       <label for="carousel-3"></label>
+       <label for="carousel-4"></label>
+     </div>
+   </div>
+ </div>
+
+
+
+	
+
+
+	<div class="col-10 offset-md-1">
+		<% if action_name == "show" %>
+			<p class="show-description-text">
+				<strong>
+					<%= markdown @article.description %>
+				</strong>
+			</p>
+			<br>
+		<% end %>
+	</div>
+
+
+
+
+
+		<div class="col-4 links"> <p class="show-author"><strong>Created by:</strong> <%= @article.author %></p></div>
+		<div class="col-4 links"> <p class="show-author"><strong>Project difficulty:</strong> <%= @article.difficulty %></p></div>
+		<div class="col-4 links"> <p class="show-author"><strong> <a href="<%= @article.git_link %>" class="button">Go To GitHub<i class="fa fa-github" aria-hidden="true"></i></a></strong></p></div>  
+
+
+	<div class="col-12">
+
+		<div class="col-4 offset-md-1 inline-block">
+			<p> <%= link_to "View PDF", article_path(@article, format: "pdf"), :class => 'button' %> </p>
+		</div>
+
+	<div class="col-6 offset-md-2">
+
+	<div class="show-buttons">
+
+		<%= link_to "Home Page", "/" if @action_name == "show" %> 
+		<%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
+		<% if can? :update, @article %>
+			<%= link_to "Edit Page", edit_article_path(@article), :class => 'button' if action_name == "show" %>
+			<%= link_to "Delete", article_path(@article), method: :delete, :class => 'button', data: { confirm: "Are you sure?" } if action_name == "show" %>
+	    <% if @article.approved == false %>
+	      <%= link_to "Approve", "/articles/approve/#{@article.id}", method: :put, :class => 'button', data: { confirm: "Are you sure you wish to approve this article?"} if action_name == "show" %>
+	    <% end %>
+		<% end %>
+
+
+	</div>
+	</div>
+
+<div id="social-media-div">
+
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//localhost%3A3000/articles/<%= @article.id %>" target="_blank">
+		<div id="facebook-button" class="social-media-buttons"></div>
+	</a>
+
+	<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:3000/articles<%= @article.id %>&title=ShowMe%20Portfolio%20Project&summary=Portfolio%20item%20<%= @article.id %>&source=LinkedIn" target="_blank">
+		<div id="linkedin-button" class="social-media-buttons"></div>
+	</a>
+
+	<a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%3A3000%2Farticles%2F1&ref_src=twsrc%5Etfw&text=ShowmeProject&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%3A3000%2Farticles%2F<%= @article.id %>" target="_blank">
+		<div id="twitter-button" class="social-media-buttons"></div>
+	</a>
+
 </div>
-  
-
-
-<div class="show-project-description">
-  
-  <% if action_name == "show" %>
-
-
-
-    <p class="show-description-text"><strong><%= @article.description %></strong></p>
-    <br>
-  <% end %>
-
-</div>
-
-
-
-  <div class="show-buttons">
-  
-  <%= link_to "Home Page", "/" if @action_name == "show" %> 
-  <%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
-  
-
-
-  <% if can? :update, @article %>
-    <%= link_to "Edit Page", edit_article_path(@article) if action_name == "show" %>
-    <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
-  <% end %>
-
-  </div>
-

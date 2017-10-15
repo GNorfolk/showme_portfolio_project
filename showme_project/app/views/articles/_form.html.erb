@@ -12,7 +12,9 @@
 
 <% end %>
 
-<div id='form-body'>
+<div class="col-12 text-center">
+
+<div class='form-body'>
   <%= form_for(@article) do |f| %>
   <!-- form helper which allows whats inputted into the form be pushed into the database -->
     <%= f.label :title, "Title " %>
@@ -27,23 +29,33 @@
     <!-- Description label and Description entry field -->
     <br> <br>
 
-    <%= f.label :bg_image, "Background Image " %>
+    <%= f.label :background_img, "Background Image" %>
     <br>
-    <%= f.text_field :bg_image, size: 70 %>
-    <!-- Background img label and Background img entry field -->
-    <br> <br>
+    <%= f.file_field :background_img %> 
+    <br><br>
 
-    <%= f.label :proj_image, "Project Image " %>
+    <%= f.label :carousel_img_one, "Image One" %>
     <br>
-    <%= f.text_field :proj_image, size: 70 %>
-    <!-- Project img label and Project img entry field -->
-    <br> <br>
+    <%= f.file_field :carousel_img_one %>
+    <br><br>
+
+    <%= f.label :carousel_img_two, "Image Two" %>
+    <br>
+    <%= f.file_field :carousel_img_two %>
+    <br><br>
+
+    <%= f.label :carousel_img_three, "Image Three" %>
+    <br>
+    <%= f.file_field :carousel_img_three %>
+    <br><br>
 
     <%= f.label :git_link, "GitHub URL " %>
     <br>
     <%= f.text_field :git_link, size: 70 %>
     <!-- GitHub Url label and GitHub Url entry field -->
     <br> <br>
+
+
 
     <%= f.label :difficulty, "Difficulty (1-5) " %>
     <p id='slider-output'><p>
@@ -53,11 +65,16 @@
     <!-- Difficulty slider which allows the user to chose between a difficulty of 1 and 5 -->
     <br>
 
+
+
+    
+
     <%= f.submit %>
     <!-- Submit button which pushes the information in the form to the database. -->
     <br>
 
   <% end %>
+</div>
 </div>
 
 <script>
