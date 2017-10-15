@@ -8,7 +8,6 @@ class ArticlePdf < Prawn::Document
 		article_title
 		article_description
 		article_author
-		article_image
 
 	end
 
@@ -26,10 +25,6 @@ class ArticlePdf < Prawn::Document
 		text @article.author
 	end
 
-	def article_image
-		move_down 100
-		text@article.bg_image
-	end
 
 
 
