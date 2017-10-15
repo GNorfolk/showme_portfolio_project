@@ -98,15 +98,18 @@
 	</div>
 	</div>
 
-	
+<div id="social-media-div">
 
-</div>
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//localhost%3A3000/articles/<%= @article.id %>" target="_blank">
+		<div id="facebook-button" class="social-media-buttons"></div>
+	</a>
 
+	<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:3000/articles<%= @article.id %>&title=ShowMe%20Portfolio%20Project&summary=Portfolio%20item%20<%= @article.id %>&source=LinkedIn" target="_blank">
+		<div id="linkedin-button" class="social-media-buttons"></div>
+	</a>
 
+	<a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%3A3000%2Farticles%2F1&ref_src=twsrc%5Etfw&text=ShowmeProject&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%3A3000%2Farticles%2F<%= @article.id %>" target="_blank">
+		<div id="twitter-button" class="social-media-buttons"></div>
+	</a>
 
-
-
-
-	<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
-	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>

@@ -653,3 +653,29 @@ body {
 	margin-bottom: 75px;
 }
 
+.social-media-buttons {
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+  float: center;
+}
+
+#social-media-div {
+  width: 200px;
+  margin: 10px auto;
+}
+
+#facebook-button {
+  background-image: url('facebook.png');
+  background-size: contain;
+}
+
+#linkedin-button {
+  background-image: url('linkedin.png');
+  background-size: contain;
+}
+
+#twitter-button {
+  background-image: url('twitter.png');
+  background-size: contain;
+}
