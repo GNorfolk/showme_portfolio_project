@@ -24,6 +24,6 @@ var $article = $(".article");
 
 console.log($article)
 
-$article.fadeOut(7000);
+
 
 });
