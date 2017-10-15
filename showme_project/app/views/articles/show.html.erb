@@ -72,20 +72,20 @@
 	<div class="col-12">
 
 		<div class="col-4 offset-md-1 inline-block">
-			<p> <%= link_to "View PDF", article_path(@article, format: "pdf") %> </p>
+			<p> <%= link_to "View PDF", article_path(@article, format: "pdf"), :class => 'button' %> </p>
 		</div>
 
-	<div class="col-3 offset-md-3 pull-right">
+	<div class="col-6 offset-md-2">
 
 	<div class="show-buttons">
 
 		<%= link_to "Home Page", "/" if @action_name == "show" %> 
 		<%= link_to "View", @article, :class => 'show-button' unless action_name == "show" %> 
 		<% if can? :update, @article %>
-			<%= link_to "Edit Page", edit_article_path(@article) if action_name == "show" %>
-			<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } if action_name == "show" %>
+			<%= link_to "Edit Page", edit_article_path(@article), :class => 'button' if action_name == "show" %>
+			<%= link_to "Delete", article_path(@article), method: :delete, :class => 'button', data: { confirm: "Are you sure?" } if action_name == "show" %>
 	    <% if @article.approved == false %>
-	      <%= link_to "Approve", "/articles/approve/#{@article.id}", method: :put, data: { confirm: "Are you sure you wish to approve this article?"} if action_name == "show" %>
+	      <%= link_to "Approve", "/articles/approve/#{@article.id}", method: :put, :class => 'button', data: { confirm: "Are you sure you wish to approve this article?"} if action_name == "show" %>
 	    <% end %>
 		<% end %>
 

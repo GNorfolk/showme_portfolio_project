@@ -25,7 +25,4 @@ class ArticlePdf < Prawn::Document
 		text @article.author
 	end
 
-
-
-
 end

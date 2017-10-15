@@ -37,6 +37,14 @@ body {
   background-attachment: fixed;
 }
 
+.button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  margin: 10px auto;
+  border: 2px darkgray solid;
+
+}
 
 /*.article-bar {
 =======
@@ -669,8 +677,9 @@ body {
 }
 
 #social-media-div {
-  width: 200px;
+  width: 230px;
   margin: 10px auto;
+  margin-top: 60px;
 }
 
 #facebook-button {
