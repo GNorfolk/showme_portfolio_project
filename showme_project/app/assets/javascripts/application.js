@@ -48,7 +48,7 @@ $article.mouseover(function (){
 
 $article.mouseout(function (){
  var $this = 	$(this).find(".bg-image");
- $this.stop().animate({"background-size": "-=50px"}, 1500);
+ $this.stop().animate({"background-size": "500px"}, 1500);
  console.log($this)
 });
 
